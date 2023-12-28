@@ -41,15 +41,24 @@ class CategoriesWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: 10,
               ),
-              child: Row(
-                children: [
-                  Icon(CupertinoIcons.search,color:
-                    Color(0xffaca9aa),)
-                ],
+              child: TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Search our products... ",
+                  hintStyle: TextStyle(
+                      fontSize: 15,
+                    color: Color(0xffa7a6a7)
+                  ),
+                  prefixIcon: Icon(Icons.search_outlined,
+                  color: Color(0xffaca9aa),),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none
+                  ),
+                ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -8,6 +8,7 @@ class Assets {
   static const String imagesEllipse13 = 'assets/images/Ellipse13.png';
   static const String imagesEllipse14 = 'assets/images/Ellipse14.png';
   static const String imagesEllipse15 = 'assets/images/Ellipse15.png';
+  static const String imagesFaqs = 'assets/images/faqs.png';
   static const String imagesFav = 'assets/images/fav.png';
   static const String imagesFrame = 'assets/images/Frame.png';
   static const String imagesFrame5 = 'assets/images/Frame5.png';
@@ -16,6 +17,7 @@ class Assets {
   static const String imagesHome = 'assets/images/home.png';
   static const String imagesHome1 = 'assets/images/home1.png';
   static const String imagesIcLauncher = 'assets/images/ic_launcher.png';
+  static const String imagesRate = 'assets/images/rate.png';
   static const String imagesRectangle1 = 'assets/images/Rectangle1.png';
   static const String imagesRectangle2 = 'assets/images/Rectangle2.png';
   static const String imagesSamosa1 = 'assets/images/samosa1.png';
