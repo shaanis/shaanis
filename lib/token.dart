@@ -13,6 +13,7 @@ class _TokenPageState extends State<TokenPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -35,30 +36,139 @@ class _TokenPageState extends State<TokenPage> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.all(10),
-            width: 350,
-            height: 130,
+            margin: EdgeInsets.all(15),
+
+            //width: 350,
+            height: 120,
             decoration: ShapeDecoration(
-              /*shadows:[
+              shadows:[
                   BoxShadow(
-                      color: Colors.grey,
-                    //offset:Offset(0,5),
-                    spreadRadius: 4,
-                    blurRadius: 5,
-                      blurStyle: BlurStyle.outer
+                      color: Color(0xffb2b2b3),
+                    offset:Offset(1,4),
+                    spreadRadius: 1,
+                    blurRadius: 3,
+                     // blurStyle: BlurStyle.outer
                   )
-                ] ,*/
+                ] ,
               color: Color(0xffdffcd2),
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusDirectional.circular(15)),
+                  borderRadius: BorderRadiusDirectional.circular(7)),
             ),
             child: Row(
               children: [
                 Padding(padding: EdgeInsets.all(10)),
-                Image.asset("assets/images/3740068.jpg",
+                Image.asset(
+                  "assets/images/biri5.png",
                   width: 80,
                   height: 80,
-                ),],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,top: 30,bottom: 5),
+                      child: Text(
+                        "Token No : 024",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 28.0,bottom: 5),
+                      child: Text("Ghee Rice",
+                        style:TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold
+                        ) ,),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 13.0,bottom: 20),
+                      child: Text("Quantity : 01",
+                        style:TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold
+                        ) ,),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Text("11:44, 01 February 2024",
+                      style: TextStyle(
+                        color: Color(0xffb2b2b3),
+                        fontSize: 10
+                      ),),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.all(15),
+
+            //width: 350,
+            height: 120,
+            decoration: ShapeDecoration(
+              shadows:[
+                BoxShadow(
+                  color: Color(0xffb2b2b3),
+                  offset:Offset(1,4),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  // blurStyle: BlurStyle.outer
+                )
+              ] ,
+              color: Color(0xffdffcd2),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusDirectional.circular(7)),
+            ),
+            child: Row(
+              children: [
+                Padding(padding: EdgeInsets.all(10)),
+                Image.asset(
+                  "assets/images/biriyani5.png",
+                  width: 80,
+                  height: 80,
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8,top: 30,bottom: 5),
+                      child: Text(
+                        "Token No : 025",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left:3,bottom: 5),
+                      child: Text("Chikken Biriyani",
+                        style:TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold
+                        ) ,),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 13.0,bottom: 20),
+                      child: Text("Quantity : 01",
+                        style:TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold
+                        ) ,),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Text("11:44, 01 February 2024",
+                        style: TextStyle(
+                            color: Color(0xffb2b2b3),
+                            fontSize: 10
+                        ),),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
         ],
