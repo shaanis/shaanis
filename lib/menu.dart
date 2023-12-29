@@ -1,5 +1,6 @@
 import 'package:canteen_management/fav.dart';
 import 'package:canteen_management/profile.dart';
+import 'package:canteen_management/token.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -239,7 +240,10 @@ class _MenuPageState extends State<MenuPage> {
             children: [
               IconButton(onPressed: (){},
                   icon: Icon(CupertinoIcons.home)),
-              IconButton(onPressed: (){},
+              IconButton(onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>TokenPage()));
+              },
                   icon: Icon(CupertinoIcons.book)),
               IconButton(onPressed: (){},
                   icon: Icon(CupertinoIcons.bag)),
