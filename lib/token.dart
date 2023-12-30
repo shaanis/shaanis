@@ -1,4 +1,8 @@
+import 'package:canteen_management/menu.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'fav.dart';
 
 class TokenPage extends StatefulWidget {
   const TokenPage({super.key});
@@ -172,6 +176,31 @@ class _TokenPageState extends State<TokenPage> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar:
+      Container(
+        color: Colors.white,
+        height: 70,
+        width: 60,
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(onPressed: (){},
+                icon: Icon(CupertinoIcons.home)),
+            IconButton(onPressed: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=>TokenPage()));
+            },
+                icon: Icon(CupertinoIcons.book)),
+            IconButton(onPressed: (){
+             // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MenuPage()));
+            },
+                icon: Icon(CupertinoIcons.bag)),
+            IconButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
+            },
+                icon: Icon(Icons.favorite_border_outlined))
+          ],
+        ),
       ),
     );
   }

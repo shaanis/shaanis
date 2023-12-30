@@ -4,6 +4,7 @@ import 'package:canteen_management/token.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'Widgets/CategoriesWidget.dart';
 import 'item detial.dart';
@@ -189,6 +190,7 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
             ),
+            SizedBox(height: 10,),
             Row(
               children: [
                 Padding(
@@ -216,18 +218,184 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
-            /*ListView(
-              scrollDirection: Axis.vertical,
-              children: <Widget>[
-                Container(
-                  width: 150,
-                  child: InkWell(
-                    onTap: (){},
-                    child: Image.asset("assets/images/Rectangle1.png"),
+            SizedBox(height: 5,),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  //1st
+                  Container(padding: EdgeInsets.only(top: 1),
+                    decoration: BoxDecoration(shape: BoxShape.rectangle,
+                      borderRadius:  BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    margin: EdgeInsets.all(10),
+                    width: 200,
+                    height:170,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: (){},
+                          child: Image.asset("assets/images/Rectangle1.png"),
+
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left:10,top: 5,bottom: 4),
+                              child: Text("Chikken biriyani",style: TextStyle(
+                                  fontSize: 10,fontWeight:  FontWeight.bold
+                              ),),
+                            ),
+                            Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15,top: 5),
+                              child: Text("₹70",style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10
+                              ),),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10,bottom: 10),
+                          child: RatingBar.builder(
+                              itemSize: 12,
+                              initialRating: 3,
+                              minRating: 0,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {}),
+                        ),
+                      ],
+                    ),
                   ),
-                )
-              ],
-            )*/
+                      SizedBox(width: 10,),
+
+                      //2nd container
+
+                      Container(padding: EdgeInsets.only(top: 1),
+                        decoration: BoxDecoration(shape: BoxShape.rectangle,
+                        borderRadius:  BorderRadius.circular(20),
+                          color: Colors.white,
+                        ),
+                        margin: EdgeInsets.all(10),
+                        width: 200,
+                        height:170,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              onTap: (){},
+                                child: Image.asset("assets/images/ghee.jpg",
+
+                                  width: 200,height: 120,
+                                fit: BoxFit.cover,
+                                  ),
+
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left:11,top: 5,bottom: 4),
+                                  child: Text("Ghee Rice",style: TextStyle(
+                                    fontSize: 10,fontWeight:  FontWeight.bold
+                                  ),),
+                                ),
+                                Spacer(),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15,top: 5),
+                                  child: Text("₹70",style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10
+                                  ),),
+                                )
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10,bottom: 10),
+                              child: RatingBar.builder(
+                                  itemSize: 12,
+                                  initialRating: 3,
+                                  minRating: 0,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                  SizedBox(width: 10,),
+
+                  //3rd container
+
+
+                  Container(padding: EdgeInsets.only(top: 1),
+                    decoration: BoxDecoration(shape: BoxShape.rectangle,
+                      borderRadius:  BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    margin: EdgeInsets.all(10),
+                    width: 200,
+                    height:170,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: (){},
+                          child: Image.asset("assets/images/Rectangle1.png"),
+
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left:10,top: 5,bottom: 4),
+                              child: Text("Chikken biriyani",style: TextStyle(
+                                  fontSize: 10,fontWeight:  FontWeight.bold
+                              ),),
+                            ),
+                            Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15,top: 5),
+                              child: Text("₹70",style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10
+                              ),),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10,bottom: 10),
+                          child: RatingBar.builder(
+                              itemSize: 12,
+                              initialRating: 3,
+                              minRating: 0,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {}),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -85,7 +85,7 @@ class _ItemDetailState extends State<ItemDetail> {
                                 size: 10,
                                 color: Colors.amber,
                               ),
-                          onRatingUpdate: (rating) {})
+                          onRatingUpdate: (rating) {}),
                     ],
                   ),
                 ],

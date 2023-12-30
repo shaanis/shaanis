@@ -1,4 +1,5 @@
 import 'package:canteen_management/profileEdit.dart';
+import 'package:canteen_management/review.dart';
 import 'package:flutter/material.dart';
 
 class profile extends StatefulWidget {
@@ -299,7 +300,9 @@ class _profileState extends State<profile> {
                         width: 92,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
