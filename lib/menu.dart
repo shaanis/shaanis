@@ -237,7 +237,9 @@ class _MenuPageState extends State<MenuPage> {
                       children: [
                         InkWell(
                           onTap: (){},
-                          child: Image.asset("assets/images/Rectangle1.png"),
+                          child: Image.asset("assets/images/chick.jpg",
+                            width: 200,height: 120,
+                            fit: BoxFit.cover,),
 
                         ),
                         Row(
@@ -312,7 +314,7 @@ class _MenuPageState extends State<MenuPage> {
                                 Spacer(),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 15,top: 5),
-                                  child: Text("₹70",style: TextStyle(
+                                  child: Text("₹50",style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 10
                                   ),),
@@ -354,7 +356,10 @@ class _MenuPageState extends State<MenuPage> {
                       children: [
                         InkWell(
                           onTap: (){},
-                          child: Image.asset("assets/images/Rectangle1.png"),
+                          child: Image.asset("assets/images/verumchor1.jpg",
+                            width: 200,height: 120,
+                            fit: BoxFit.cover,
+                          ),
 
                         ),
                         Row(
@@ -362,14 +367,14 @@ class _MenuPageState extends State<MenuPage> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left:10,top: 5,bottom: 4),
-                              child: Text("Chikken biriyani",style: TextStyle(
+                              child: Text("Rice",style: TextStyle(
                                   fontSize: 10,fontWeight:  FontWeight.bold
                               ),),
                             ),
                             Spacer(),
                             Padding(
                               padding: const EdgeInsets.only(right: 15,top: 5),
-                              child: Text("₹70",style: TextStyle(
+                              child: Text("₹50",style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 10
                               ),),

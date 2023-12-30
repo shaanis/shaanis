@@ -117,7 +117,8 @@ class _reviewPageState extends State<reviewPage> {
             ],
           ),
           RatingBar.builder(
-              itemSize: 12,
+            itemPadding: EdgeInsets.all(5),
+              itemSize: 19,
               initialRating: 3,
               minRating: 0,
               direction: Axis.horizontal,
