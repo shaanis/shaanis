@@ -1,3 +1,4 @@
+import 'package:canteen_management/cart.dart';
 import 'package:canteen_management/fav.dart';
 import 'package:canteen_management/profile.dart';
 import 'package:canteen_management/token.dart';
@@ -25,39 +26,41 @@ class _MenuPageState extends State<MenuPage> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 48.0,bottom: 15,left: 15,right: 15),
+              padding: const EdgeInsets.only(
+                  top: 48.0, bottom: 15, left: 15, right: 15),
               child: Row(
                 children: [
-                 Text("Menu",
-                   style: TextStyle(
-                     fontSize: 20,
-                     fontWeight: FontWeight.bold
-                   ),),
-                      Spacer(),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
+                  Text(
+                    "Menu",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
                           BoxShadow(
                             blurStyle: BlurStyle.inner,
                             color: Color(0xffdadce7),
                             blurRadius: 1,
                             spreadRadius: 0,
-                            offset: Offset(0,4),
+                            offset: Offset(0, 4),
                           )
                         ]),
-                        child: CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.grey,
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>profile()));
-                              },
-                              child: Image.asset("assets/images/ic_launcher.png",
-                                  width: 28, height: 28),
-                            )),
-
+                    child: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.grey,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => profile()));
+                          },
+                          child: Image.asset("assets/images/ic_launcher.png",
+                              width: 28, height: 28),
+                        )),
                   ),
                 ],
               ),
@@ -100,7 +103,8 @@ class _MenuPageState extends State<MenuPage> {
                       onPressed: () {},
                       child: Text(
                         "Show All",
-                        style: TextStyle(fontSize: 12, color: Color(0xffa7a6a7)),
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xffa7a6a7)),
                       ),
                     ),
                   )
@@ -110,16 +114,20 @@ class _MenuPageState extends State<MenuPage> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: SingleChildScrollView(
+                //scrollDirection: Axis.horizontal,
                 child: Row(
-                  //crossAxisAlignment: CrossAxisAlignment.start,
-                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //crossAxisAlignment: CrossAxisAlignment.,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => ItemDetail(),));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ItemDetail(),
+                                ));
                           },
                           child: Image.asset("assets/images/Ellipse15.png"),
                         ),
@@ -190,7 +198,9 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Padding(
@@ -218,51 +228,61 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ],
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   //1st
-                  Container(padding: EdgeInsets.only(top: 1),
-                    decoration: BoxDecoration(shape: BoxShape.rectangle,
-                      borderRadius:  BorderRadius.circular(10),
+                  Container(
+                    padding: EdgeInsets.only(top: 1),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
                     ),
                     margin: EdgeInsets.all(10),
                     width: 200,
-                    height:170,
+                    height: 170,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InkWell(
-                          onTap: (){},
-                          child: Image.asset("assets/images/chick.jpg",
-                            width: 200,height: 120,
-                            fit: BoxFit.cover,),
-
+                          onTap: () {},
+                          child: Image.asset(
+                            "assets/images/chick.jpg",
+                            width: 200,
+                            height: 120,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left:10,top: 5,bottom: 4),
-                              child: Text("Chikken biriyani",style: TextStyle(
-                                  fontSize: 10,fontWeight:  FontWeight.bold
-                              ),),
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 5, bottom: 4),
+                              child: Text(
+                                "Chikken biriyani",
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.bold),
+                              ),
                             ),
                             Spacer(),
                             Padding(
-                              padding: const EdgeInsets.only(right: 15,top: 5),
-                              child: Text("₹70",style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10
-                              ),),
+                              padding: const EdgeInsets.only(right: 15, top: 5),
+                              child: Text(
+                                "₹70",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 10),
+                              ),
                             )
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10,bottom: 10),
+                          padding: const EdgeInsets.only(left: 10, bottom: 10),
                           child: RatingBar.builder(
                               itemSize: 12,
                               initialRating: 3,
@@ -270,119 +290,67 @@ class _MenuPageState extends State<MenuPage> {
                               direction: Axis.horizontal,
                               allowHalfRating: true,
                               itemBuilder: (context, _) => Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
                               onRatingUpdate: (rating) {}),
                         ),
                       ],
                     ),
                   ),
-                      SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
 
-                      //2nd container
+                  //2nd container
 
-                      Container(padding: EdgeInsets.only(top: 1),
-                        decoration: BoxDecoration(shape: BoxShape.rectangle,
-                        borderRadius:  BorderRadius.circular(20),
-                          color: Colors.white,
-                        ),
-                        margin: EdgeInsets.all(10),
-                        width: 200,
-                        height:170,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              onTap: (){},
-                                child: Image.asset("assets/images/ghee.jpg",
-
-                                  width: 200,height: 120,
-                                fit: BoxFit.cover,
-                                  ),
-
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left:11,top: 5,bottom: 4),
-                                  child: Text("Ghee Rice",style: TextStyle(
-                                    fontSize: 10,fontWeight:  FontWeight.bold
-                                  ),),
-                                ),
-                                Spacer(),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 15,top: 5),
-                                  child: Text("₹50",style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10
-                                  ),),
-                                )
-                              ],
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10,bottom: 10),
-                              child: RatingBar.builder(
-                                  itemSize: 12,
-                                  initialRating: 3,
-                                  minRating: 0,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemBuilder: (context, _) => Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (rating) {}),
-                            ),
-                          ],
-                        ),
-                      ),
-                  SizedBox(width: 10,),
-
-                  //3rd container
-
-
-                  Container(padding: EdgeInsets.only(top: 1),
-                    decoration: BoxDecoration(shape: BoxShape.rectangle,
-                      borderRadius:  BorderRadius.circular(10),
+                  Container(
+                    padding: EdgeInsets.only(top: 1),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(20),
                       color: Colors.white,
                     ),
                     margin: EdgeInsets.all(10),
                     width: 200,
-                    height:170,
+                    height: 170,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InkWell(
-                          onTap: (){},
-                          child: Image.asset("assets/images/verumchor1.jpg",
-                            width: 200,height: 120,
+                          onTap: () {},
+                          child: Image.asset(
+                            "assets/images/ghee.jpg",
+                            width: 200,
+                            height: 120,
                             fit: BoxFit.cover,
                           ),
-
                         ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left:10,top: 5,bottom: 4),
-                              child: Text("Rice",style: TextStyle(
-                                  fontSize: 10,fontWeight:  FontWeight.bold
-                              ),),
+                              padding: const EdgeInsets.only(
+                                  left: 11, top: 5, bottom: 4),
+                              child: Text(
+                                "Ghee Rice",
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.bold),
+                              ),
                             ),
                             Spacer(),
                             Padding(
-                              padding: const EdgeInsets.only(right: 15,top: 5),
-                              child: Text("₹50",style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 10
-                              ),),
+                              padding: const EdgeInsets.only(right: 15, top: 5),
+                              child: Text(
+                                "₹50",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 10),
+                              ),
                             )
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10,bottom: 10),
+                          padding: const EdgeInsets.only(left: 10, bottom: 10),
                           child: RatingBar.builder(
                               itemSize: 12,
                               initialRating: 3,
@@ -390,9 +358,77 @@ class _MenuPageState extends State<MenuPage> {
                               direction: Axis.horizontal,
                               allowHalfRating: true,
                               itemBuilder: (context, _) => Icon(
-                                Icons.star,
-                                color: Colors.amber,
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                              onRatingUpdate: (rating) {}),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+
+                  //3rd container
+
+                  Container(
+                    padding: EdgeInsets.only(top: 1),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
+                    ),
+                    margin: EdgeInsets.all(10),
+                    width: 200,
+                    height: 170,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: Image.asset(
+                            "assets/images/verumchor1.jpg",
+                            width: 200,
+                            height: 120,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 10, top: 5, bottom: 4),
+                              child: Text(
+                                "Rice",
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.bold),
                               ),
+                            ),
+                            Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15, top: 5),
+                              child: Text(
+                                "₹50",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 10),
+                              ),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, bottom: 10),
+                          child: RatingBar.builder(
+                              itemSize: 12,
+                              initialRating: 3,
+                              minRating: 0,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
                               onRatingUpdate: (rating) {}),
                         ),
                       ],
@@ -404,28 +440,114 @@ class _MenuPageState extends State<MenuPage> {
           ],
         ),
       ),
-      bottomNavigationBar:
-         Container(
-          color: Colors.white,
-           height: 70,
-          width: 60,
-          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(onPressed: (){},
-                  icon: Icon(CupertinoIcons.home)),
-              IconButton(onPressed: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>TokenPage()));
-              },
-                  icon: Icon(CupertinoIcons.book)),
-              IconButton(onPressed: (){},
-                  icon: Icon(CupertinoIcons.bag)),
-              IconButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
-              },
-                  icon: Icon(Icons.favorite_border_outlined))
-            ],
-          ),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        height: 70,
+        width: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      MenuPage(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    var begin = Offset(1, 0);
+                    var end = Offset.zero;
+                    var curve = Curves.easeInOut;
+
+                    var tween = Tween(begin: begin, end: end).chain(
+                      CurveTween(curve: curve),
+                    );
+                    return SlideTransition(
+                      position: animation.drive(tween),
+                      child: child,
+                    );
+                  },
+                ),
+              );
+            },
+                icon: Icon(CupertinoIcons.home)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          TokenPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(CupertinoIcons.book)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          CartPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(CupertinoIcons.bag)),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          Favorite(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(Icons.favorite_border_outlined))
+          ],
+        ),
       ),
     );
   }

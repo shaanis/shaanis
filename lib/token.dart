@@ -2,6 +2,7 @@ import 'package:canteen_management/menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'cart.dart';
 import 'fav.dart';
 
 class TokenPage extends StatefulWidget {
@@ -177,27 +178,111 @@ class _TokenPageState extends State<TokenPage> {
           ),
         ],
       ),
-      bottomNavigationBar:
-      Container(
+      bottomNavigationBar: Container(
         color: Colors.white,
         height: 70,
         width: 60,
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(onPressed: (){},
+            IconButton(onPressed: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      MenuPage(),
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) {
+                    var begin = Offset(1, 0);
+                    var end = Offset.zero;
+                    var curve = Curves.easeInOut;
+
+                    var tween = Tween(begin: begin, end: end).chain(
+                      CurveTween(curve: curve),
+                    );
+                    return SlideTransition(
+                      position: animation.drive(tween),
+                      child: child,
+                    );
+                  },
+                ),
+              );
+            },
                 icon: Icon(CupertinoIcons.home)),
-            IconButton(onPressed: (){
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context)=>TokenPage()));
-            },
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          TokenPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 icon: Icon(CupertinoIcons.book)),
-            IconButton(onPressed: (){
-             // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MenuPage()));
-            },
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          CartPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 icon: Icon(CupertinoIcons.bag)),
-            IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
-            },
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          Favorite(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 icon: Icon(Icons.favorite_border_outlined))
           ],
         ),
