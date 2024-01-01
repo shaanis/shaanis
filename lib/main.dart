@@ -1,5 +1,6 @@
 import 'package:canteen_management/cart.dart';
 import 'package:canteen_management/login.dart';
+import 'package:canteen_management/maintance.dart';
 import 'package:canteen_management/signup.dart';
 import 'package:canteen_management/splash.dart';
 import 'package:canteen_management/uporin.dart';
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: Register(),
-      home: CartPage(),
+      home: Maintanace(),
+
     );
   }
 }

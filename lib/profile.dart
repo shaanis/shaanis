@@ -98,9 +98,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Personal Info"),
-                      SizedBox(
-                        width: 110,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {
                           Navigator.push(
@@ -127,9 +125,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Tockens"),
-                      SizedBox(
-                        width: 140,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -166,9 +162,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Cart"),
-                      SizedBox(
-                        width: 180,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -188,9 +182,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Favorite"),
-                      SizedBox(
-                        width: 160,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -210,9 +202,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Notifications"),
-                      SizedBox(
-                        width: 130,
-                      ),
+                     Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -226,15 +216,14 @@ class _profileState extends State<profile> {
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
                           child: Icon(
-                            Icons.credit_card_outlined,
+                            Icons.border_color_outlined,
                             color: Color(0xff2a85f2),
                           ),
                         ),
                       ),
-                      Text("Payment Method"),
-                      SizedBox(
-                        width: 100,
-                      ),
+                      Text("Pre Order"),
+                      Spacer(),
+
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -272,9 +261,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("FAQs"),
-                      SizedBox(
-                        width: 175,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
@@ -296,9 +283,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Rating & Feedback"),
-                      SizedBox(
-                        width: 92,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));
@@ -337,9 +322,7 @@ class _profileState extends State<profile> {
                         ),
                       ),
                       Text("Log Out"),
-                      SizedBox(
-                        width: 160,
-                      ),
+                      Spacer(),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.arrow_forward_ios, size: 15),

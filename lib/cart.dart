@@ -98,9 +98,7 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
+                  Spacer(),
                   Container(
                     margin: EdgeInsets.only(left: 10, right: 10),
                     width: 30,
@@ -197,9 +195,7 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
+                  Spacer(),
                   Container(
                     margin: EdgeInsets.only(left: 10, right: 10),
                     width: 30,
@@ -289,9 +285,7 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
+                  Spacer(),
                   Container(
                     margin: EdgeInsets.only(left: 10, right: 10),
                     width: 30,
@@ -400,6 +394,7 @@ class _CartPageState extends State<CartPage> {
               SizedBox(height: 10,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  elevation: 0,
                     backgroundColor: Color(0xff53e510),
                   shape:  RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)
