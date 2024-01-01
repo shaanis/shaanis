@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'cart.dart';
+
 class ItemDetail extends StatefulWidget {
   const ItemDetail({super.key});
 
@@ -15,6 +17,8 @@ class _ItemDetailState extends State<ItemDetail> {
       _isLiked = !_isLiked;
     });
   }
+  //add to cart
+  void addCart(){}
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,9 @@ class _ItemDetailState extends State<ItemDetail> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -118,7 +124,9 @@ snack cravings at our canteen.""",
               ),),
             ),
             SizedBox(height: 25,),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(onPressed: (){
+              addCart();
+            },
               style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(horizontal: 12,vertical: 5),
                     elevation: 0,
@@ -130,7 +138,13 @@ snack cravings at our canteen.""",
               ),
                 child: Text('Add to Cart'),),
             SizedBox(height: 15,),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(
+              onPressed: (){
+                showModalBottomSheet(context: context,
+                    builder: (context){
+                  return CartPage();
+                    });
+              },
               style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 12,vertical: 5),
                   elevation: 0,
