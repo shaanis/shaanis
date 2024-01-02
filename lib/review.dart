@@ -12,12 +12,11 @@ class _reviewPageState extends State<reviewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10.0, right: 10, top: 30),
+            padding: const EdgeInsets.only(left: 10.0, right: 10, top: 50),
             child: Row(
               children: [
                 IconButton(
@@ -60,9 +59,8 @@ class _reviewPageState extends State<reviewPage> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 98.0),
-                  child: TextButton(
+                 Spacer(),
+                 TextButton(
                     onPressed: () {},
                     child: Text(
                       "Post",
@@ -71,7 +69,7 @@ class _reviewPageState extends State<reviewPage> {
                           color: Color(0xff61e725)),
                     ),
                   ),
-                ),
+
               ],
             ),
           ),
@@ -116,9 +114,10 @@ class _reviewPageState extends State<reviewPage> {
               )
             ],
           ),
+          SizedBox(height: 20,),
           RatingBar.builder(
-            itemPadding: EdgeInsets.all(5),
-              itemSize: 19,
+            itemPadding: EdgeInsets.all(9),
+              itemSize: 22,
               initialRating: 3,
               minRating: 0,
               direction: Axis.horizontal,
@@ -128,6 +127,44 @@ class _reviewPageState extends State<reviewPage> {
                 color: Colors.amber,
               ),
               onRatingUpdate: (rating) {}),
+          SizedBox(height: 10,),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 15,
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xffebebec),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Describe your experience (optional) ",
+                    hintStyle:
+                    TextStyle(fontSize: 14, color: Color(0xff6a6d82)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5),
+                        borderSide: BorderSide.none),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 260.0),
+            child: Text("0/500",
+            style: TextStyle(
+              fontSize: 12,
+              color: Color(0xff6a6d82)
+            ),),
+          )
         ],
       ),
     );

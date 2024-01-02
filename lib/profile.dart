@@ -1,6 +1,13 @@
+import 'package:canteen_management/cart.dart';
+import 'package:canteen_management/fav.dart';
+import 'package:canteen_management/preorder.dart';
 import 'package:canteen_management/profileEdit.dart';
 import 'package:canteen_management/review.dart';
+import 'package:canteen_management/token.dart';
 import 'package:flutter/material.dart';
+
+import 'faqs.dart';
+import 'notification.dart';
 
 class profile extends StatefulWidget {
   const profile({super.key});
@@ -127,7 +134,9 @@ class _profileState extends State<profile> {
                       Text("Tockens"),
                       Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>TokenPage()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
@@ -164,7 +173,9 @@ class _profileState extends State<profile> {
                       Text("Cart"),
                       Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
@@ -184,7 +195,9 @@ class _profileState extends State<profile> {
                       Text("Favorite"),
                       Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
@@ -204,7 +217,9 @@ class _profileState extends State<profile> {
                       Text("Notifications"),
                      Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationPage()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
@@ -225,7 +240,9 @@ class _profileState extends State<profile> {
                       Spacer(),
 
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>PreOrderPage()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
@@ -263,7 +280,9 @@ class _profileState extends State<profile> {
                       Text("FAQs"),
                       Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Faqs()));
+                        },
                         icon: Icon(Icons.arrow_forward_ios, size: 15),
                       ),
                     ],
