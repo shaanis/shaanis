@@ -140,10 +140,6 @@ snack cravings at our canteen.""",
             SizedBox(height: 15,),
             ElevatedButton(
               onPressed: (){
-                showModalBottomSheet(context: context,
-                    builder: (context){
-                  return CartPage();
-                    });
               },
               style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 12,vertical: 5),

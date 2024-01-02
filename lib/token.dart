@@ -49,9 +49,8 @@ class _TokenPageState extends State<TokenPage> {
               shadows:[
                   BoxShadow(
                       color: Color(0xffb2b2b3),
-                    offset:Offset(1,4),
-                    spreadRadius: 1,
-                    blurRadius: 3,
+                    offset: Offset(0,2),
+                    blurRadius: 1,
                      // blurStyle: BlurStyle.outer
                   )
                 ] ,
@@ -117,9 +116,8 @@ class _TokenPageState extends State<TokenPage> {
               shadows:[
                 BoxShadow(
                   color: Color(0xffb2b2b3),
-                  offset:Offset(1,4),
-                  spreadRadius: 1,
-                  blurRadius: 3,
+                  offset: Offset(0,2),
+                  blurRadius: 1,
                   // blurStyle: BlurStyle.outer
                 )
               ] ,

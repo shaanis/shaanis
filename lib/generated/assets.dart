@@ -19,9 +19,11 @@ class Assets {
   static const String imagesFries1 = 'assets/images/fries1.jpg';
   static const String imagesGhee = 'assets/images/ghee.jpg';
   static const String imagesGoogle2504739 = 'assets/images/google_2504739.png';
+  static const String imagesGpay = 'assets/images/gpay.png';
   static const String imagesHome = 'assets/images/home.png';
   static const String imagesHome1 = 'assets/images/home1.png';
   static const String imagesIcLauncher = 'assets/images/ic_launcher.png';
+  static const String imagesIcons8 = 'assets/images/icons8.png';
   static const String imagesMaintenance = 'assets/images/maintenance.png';
   static const String imagesRate = 'assets/images/rate.png';
   static const String imagesRectangle1 = 'assets/images/Rectangle1.png';

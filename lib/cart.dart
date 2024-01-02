@@ -1,3 +1,4 @@
+import 'package:canteen_management/payment.dart';
 import 'package:canteen_management/token.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -401,7 +402,9 @@ class _CartPageState extends State<CartPage> {
                   ),
                     minimumSize: Size(350, 48)
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                },
                 child: Text("Proceed to Buy"),
               ),
             ],
