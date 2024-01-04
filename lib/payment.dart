@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:canteen_management/pay1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,27 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(CupertinoIcons.back,color: Colors.black,),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
+        actions: [
+          Padding(
+              padding: EdgeInsets.only(right: 160,top: 20),
+            child: Text('Payment',style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17,
+              color: Colors.black
+            ),
+            ),
+          )
+        ],
+      ),
       backgroundColor: Colors.white,
       body: Container(padding: EdgeInsets.all(10),
         child: Column(
@@ -178,7 +199,8 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
               ),
               onPressed: () {
-               // Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                Navigator.push(context,
+                 MaterialPageRoute(builder: (context)=> payPage()));
               },
               child: Text("Confirm&Pay"),
             ),

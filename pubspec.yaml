@@ -40,6 +40,7 @@ dependencies:
   flutter_native_splash: ^2.2.18
   flutter_rating_bar: ^4.0.1
   provider: ^6.1.1
+  lottie: ^2.3.2
 
 dev_dependencies:
   flutter_test:

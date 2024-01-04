@@ -46,14 +46,14 @@ class _TokenPageState extends State<TokenPage> {
             //width: 350,
             height: 120,
             decoration: ShapeDecoration(
-              shadows:[
-                  BoxShadow(
-                      color: Color(0xffb2b2b3),
-                    offset: Offset(0,2),
-                    blurRadius: 1,
-                     // blurStyle: BlurStyle.outer
-                  )
-                ] ,
+              shadows: [
+                BoxShadow(
+                  color: Color(0xffb2b2b3),
+                  offset: Offset(0, 2),
+                  blurRadius: 1,
+                  // blurStyle: BlurStyle.outer
+                )
+              ],
               color: Color(0xffdffcd2),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadiusDirectional.circular(7)),
@@ -69,7 +69,8 @@ class _TokenPageState extends State<TokenPage> {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8,top: 30,bottom: 5),
+                      padding:
+                          const EdgeInsets.only(left: 8, top: 30, bottom: 5),
                       child: Text(
                         "Token No : 024",
                         style: TextStyle(
@@ -79,28 +80,28 @@ class _TokenPageState extends State<TokenPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 28.0,bottom: 5),
-                      child: Text("Ghee Rice",
-                        style:TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold
-                        ) ,),
+                      padding: const EdgeInsets.only(right: 28.0, bottom: 5),
+                      child: Text(
+                        "Ghee Rice",
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 13.0,bottom: 20),
-                      child: Text("Quantity : 01",
-                        style:TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold
-                        ) ,),
+                      padding: const EdgeInsets.only(right: 13.0, bottom: 20),
+                      child: Text(
+                        "Quantity : 01",
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 15.0),
-                      child: Text("11:44, 01 February 2024",
-                      style: TextStyle(
-                        color: Color(0xffb2b2b3),
-                        fontSize: 10
-                      ),),
+                      child: Text(
+                        "11:44, 01 February 2024",
+                        style:
+                            TextStyle(color: Color(0xffb2b2b3), fontSize: 10),
+                      ),
                     )
                   ],
                 )
@@ -113,14 +114,14 @@ class _TokenPageState extends State<TokenPage> {
             //width: 350,
             height: 120,
             decoration: ShapeDecoration(
-              shadows:[
+              shadows: [
                 BoxShadow(
                   color: Color(0xffb2b2b3),
-                  offset: Offset(0,2),
+                  offset: Offset(0, 2),
                   blurRadius: 1,
                   // blurStyle: BlurStyle.outer
                 )
-              ] ,
+              ],
               color: Color(0xffdffcd2),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadiusDirectional.circular(7)),
@@ -136,7 +137,8 @@ class _TokenPageState extends State<TokenPage> {
                 Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8,top: 30,bottom: 5),
+                      padding:
+                          const EdgeInsets.only(left: 8, top: 30, bottom: 5),
                       child: Text(
                         "Token No : 025",
                         style: TextStyle(
@@ -146,31 +148,35 @@ class _TokenPageState extends State<TokenPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left:3,bottom: 5),
-                      child: Text("Chikken Biriyani",
-                        style:TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold
-                        ) ,),
+                      padding: const EdgeInsets.only(left: 3, bottom: 5),
+                      child: Text(
+                        "Chikken Biriyani",
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 13.0,bottom: 20),
-                      child: Text("Quantity : 01",
-                        style:TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold
-                        ) ,),
+                      padding: const EdgeInsets.only(right: 13.0, bottom: 19),
+                      child: Text(
+                        "Quantity : 01",
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 15.0),
-                      child: Text("11:44, 01 February 2024",
-                        style: TextStyle(
-                            color: Color(0xffb2b2b3),
-                            fontSize: 10
-                        ),),
+                      child: Row(
+                        children: [
+                          Text(
+                            "11:44, 01 February 2024",
+                            style: TextStyle(
+                                color: Color(0xffb2b2b3), fontSize: 10),
+                          ),
+                        ],
+                      ),
                     )
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -183,29 +189,30 @@ class _TokenPageState extends State<TokenPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(onPressed: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      MenuPage(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    var begin = Offset(1, 0);
-                    var end = Offset.zero;
-                    var curve = Curves.easeInOut;
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          MenuPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1, 0);
+                        var end = Offset.zero;
+                        var curve = Curves.easeInOut;
 
-                    var tween = Tween(begin: begin, end: end).chain(
-                      CurveTween(curve: curve),
-                    );
-                    return SlideTransition(
-                      position: animation.drive(tween),
-                      child: child,
-                    );
-                  },
-                ),
-              );
-            },
+                        var tween = Tween(begin: begin, end: end).chain(
+                          CurveTween(curve: curve),
+                        );
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 icon: Icon(CupertinoIcons.home)),
             IconButton(
                 onPressed: () {
