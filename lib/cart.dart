@@ -87,7 +87,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "Samosa",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                       SizedBox(
                         height: 15,
@@ -95,7 +95,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "₹20.00",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ],
                   ),
@@ -184,7 +184,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "Samosa",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                       SizedBox(
                         height: 15,
@@ -192,7 +192,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "₹20.00",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ],
                   ),
@@ -274,7 +274,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "Samosa",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                       SizedBox(
                         height: 15,
@@ -282,7 +282,7 @@ class _CartPageState extends State<CartPage> {
                       Text(
                         "₹20.00",
                         style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ],
                   ),
@@ -377,7 +377,7 @@ class _CartPageState extends State<CartPage> {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.only(left: 8.0, top: 8, bottom: 8, right: 8),
+                const EdgeInsets.only(left: 8.0, top: 8, bottom: 8, right: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -395,11 +395,11 @@ class _CartPageState extends State<CartPage> {
               SizedBox(height: 10,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  elevation: 0,
+                    elevation: 0,
                     backgroundColor: Color(0xff53e510),
-                  shape:  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)
-                  ),
+                    shape:  RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)
+                    ),
                     minimumSize: Size(350, 48)
                 ),
                 onPressed: () {

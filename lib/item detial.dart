@@ -1,3 +1,4 @@
+import 'package:canteen_management/review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -80,18 +81,20 @@ class _ItemDetailState extends State<ItemDetail> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      RatingBar.builder(
-                          itemSize: 12,
-                          initialRating: 3,
-                          minRating: 0,
-                          direction: Axis.horizontal,
-                          allowHalfRating: true,
-                          itemBuilder: (context, _) => Icon(
-                                Icons.star,
-                                size: 10,
-                                color: Colors.amber,
-                              ),
-                          onRatingUpdate: (rating) {}),
+                      InkWell(onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));},
+                        child: RatingBar.builder(
+                            itemSize: 12,
+                            initialRating: 3,
+                            minRating: 0,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  size: 10,
+                                  color: Colors.amber,
+                                ),
+                            onRatingUpdate: (rating) {}),
+                      ),
                     ],
                   ),
                 ],

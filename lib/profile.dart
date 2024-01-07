@@ -79,72 +79,7 @@ class _profileState extends State<profile> {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 10,
-                bottom: 10,
-              ),
-              width: 400,
-              height: 120,
-              decoration: BoxDecoration(
-                  color: Color(0xffdffcd2),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.person_outline_sharp,
-                            color: Color(0xfff96e3e),
-                          ),
-                        ),
-                      ),
-                      Text("Personal Info"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileEdit()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Image.asset(
-                            "assets/images/tocken.png",
-                            width: 17,
-                            height: 17,
-                            color: Color(0xff2a85f2),
-                          ),
-                        ),
-                      ),
-                      Text("Tockens"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>TokenPage()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(
                 left: 20,
                 right: 20,
@@ -152,105 +87,63 @@ class _profileState extends State<profile> {
                 bottom: 10,
               ),
               width: 400,
-              height: 240,
+              height: 110,
               decoration: BoxDecoration(
                   color: Color(0xffdffcd2),
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.shopping_bag_outlined,
-                            color: Color(0xff2a85f2),
+                  InkWell(
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.person_outline_sharp,
+                              color: Color(0xfff96e3e),
+                            ),
                           ),
-                        ),
-                      ),
-                      Text("Cart"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
+                         SizedBox(width: 10,),
+                        Text("Personal Info"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                    onTap:() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProfileEdit()),
+                      );
+                    },
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.favorite_border_outlined,
-                            color: Color(0xffb23dfa),
+                  SizedBox(height: 10,),
+                  InkWell(
+                    onTap:() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TokenPage()));
+                  },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Image.asset(
+                              "assets/images/tocken.png",
+                              width: 17,
+                              height: 17,
+                              color: Color(0xff2a85f2),
+                            ),
                           ),
-                        ),
-                      ),
-                      Text("Favorite"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.notifications_outlined,
-                            color: Color(0xfffda92b),
-                          ),
-                        ),
-                      ),
-                      Text("Notifications"),
-                     Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationPage()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.border_color_outlined,
-                            color: Color(0xff2a85f2),
-                          ),
-                        ),
-                      ),
-                      Text("Pre Order"),
-                      Spacer(),
-
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>PreOrderPage()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
+                        SizedBox(width: 10,),
+                        Text("Tockens"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 5,top: 5),
               margin: EdgeInsets.only(
                 left: 20,
                 right: 20,
@@ -258,63 +151,166 @@ class _profileState extends State<profile> {
                 bottom: 10,
               ),
               width: 400,
-              height: 120,
+              height: 250,
               decoration: BoxDecoration(
                   color: Color(0xffdffcd2),
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Image.asset(
-                            "assets/images/faqs.png",
-                            width: 19,
-                            height: 19,
+                  InkWell(
+                    onTap:() {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+                    },
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.shopping_bag_outlined,
+                              color: Color(0xff2a85f2),
+                            ),
                           ),
                         ),
-                      ),
-                      Text("FAQs"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Faqs()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
+                        Text("Cart"),
+                        Spacer(),
+                         Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Image.asset(
-                            "assets/images/rate.png",
-                            width: 19,
-                            height: 19,
-                            color: Color(0xff2a85f2),
+                  InkWell(
+                   onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
+                   },
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.favorite_border_outlined,
+                              color: Color(0xffb23dfa),
+                            ),
                           ),
                         ),
-                      ),
-                      Text("Rating & Feedback"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));
-                        },
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
+                        Text("Favorite"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationPage()));
+                    },
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.notifications_outlined,
+                              color: Color(0xfffda92b),
+                            ),
+                          ),
+                        ),
+                        Text("Notifications"),
+                       Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PreOrderPage()));
+                    },
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.border_color_outlined,
+                              color: Color(0xff2a85f2),
+                            ),
+                          ),
+                        ),
+                        Text("Pre Order"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
+              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
+              margin: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 5,
+                bottom: 10,
+              ),
+              width: 400,
+              height: 110,
+              decoration: BoxDecoration(
+                  color: Color(0xffdffcd2),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Faqs()));
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Image.asset(
+                              "assets/images/faqs.png",
+                              width: 19,
+                              height: 19,
+                            ),
+                          ),
+                        SizedBox(width: 10,),
+                        Text("FAQs"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Image.asset(
+                              "assets/images/rate.png",
+                              width: 19,
+                              height: 19,
+                              color: Color(0xff2a85f2),
+                            ),
+                          ),
+                        SizedBox(width: 10,),
+                        Text("Rating & Feedback"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(
                 left: 20,
                 right: 20,
@@ -328,25 +324,26 @@ class _profileState extends State<profile> {
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Icon(
-                            Icons.logout_outlined,
-                            color: Color(0xfff94959),
-                          ),
+                  InkWell(
+                    onTap: (){
+                   //logout
+                    },
+                    child: Row(
+                      children: [
+                         CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              Icons.logout_outlined,
+                              color: Color(0xfff94959),
+                            ),
+
                         ),
-                      ),
-                      Text("Log Out"),
-                      Spacer(),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.arrow_forward_ios, size: 15),
-                      ),
-                    ],
+                        SizedBox(width: 10,),
+                        Text("Log Out"),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: 15),
+                      ],
+                    ),
                   ),
                 ],
               ),

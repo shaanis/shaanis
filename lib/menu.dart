@@ -9,6 +9,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'Widgets/CategoriesWidget.dart';
 import 'item detial.dart';
+import 'itemMenu.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -100,7 +101,9 @@ class _MenuPageState extends State<MenuPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 13.0, right: 10),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemMenu()));
+                      },
                       child: Text(
                         "Show All",
                         style:
@@ -204,7 +207,7 @@ class _MenuPageState extends State<MenuPage> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 13.0, left: 10),
+                  padding: const EdgeInsets.only(top: 13.0, left: 10,bottom: 15),
                   child: Text(
                     "Popular",
                     style: TextStyle(
@@ -213,19 +216,7 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ),
                 Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 13.0, right: 10),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Show All",
-                      style: TextStyle(
-                        color: Color(0xffa7a6a7),
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                ),
+
               ],
             ),
             SizedBox(
