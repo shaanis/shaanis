@@ -6,6 +6,7 @@ import 'package:canteen_management/review.dart';
 import 'package:canteen_management/token.dart';
 import 'package:flutter/material.dart';
 
+import 'alertlogout.dart';
 import 'faqs.dart';
 import 'notification.dart';
 
@@ -17,6 +18,7 @@ class profile extends StatefulWidget {
 }
 
 class _profileState extends State<profile> {
+  String title = 'AlertDialog';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -325,8 +327,8 @@ class _profileState extends State<profile> {
               child: Column(
                 children: [
                   InkWell(
-                    onTap: (){
-                   //logout
+                    onTap: () async {
+                      final action = await AlertDialogs.yesCancelDialog(context,'Logout?','Are you sure want to logout ?');
                     },
                     child: Row(
                       children: [
