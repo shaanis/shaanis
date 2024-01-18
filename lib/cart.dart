@@ -332,9 +332,7 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 80,
-              ),
+              SizedBox(height: MediaQuery.of(context).size.height*0.14),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(

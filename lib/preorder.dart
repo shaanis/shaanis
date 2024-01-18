@@ -36,6 +36,7 @@ class _PreOrderPageState extends State<PreOrderPage> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height *0.85,

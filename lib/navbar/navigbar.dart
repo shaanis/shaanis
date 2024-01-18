@@ -17,9 +17,9 @@ class _navigationState extends State<navigation> {
   int myIndex = 0;
   List<Widget> widgetList = const [
     MenuPage(),
-    Favorite(),
     TokenPage(),
-    CartPage()
+    CartPage(),
+    Favorite(),
   ];
   @override
   Widget build(BuildContext context) {

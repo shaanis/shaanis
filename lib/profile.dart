@@ -42,6 +42,7 @@ class _profileState extends State<profile> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             Row(
@@ -135,7 +136,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                         SizedBox(width: 10,),
-                        Text("Tockens"),
+                        Text("Tokens"),
                         Spacer(),
                         Icon(Icons.arrow_forward_ios, size: 15),
                       ],

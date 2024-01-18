@@ -24,7 +24,9 @@ class _MenuPageState extends State<MenuPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Container(
+          margin: EdgeInsets.only(left: 5),
           width: double.infinity,
           height: MediaQuery.of(context).size.height ,
           child: Column(
@@ -92,6 +94,7 @@ class _MenuPageState extends State<MenuPage> {
               ),
                Row(
                   children: [
+
                     Padding(
                       padding: const EdgeInsets.only(top: 30.0, left: 10),
                       child: Text(
@@ -113,7 +116,7 @@ class _MenuPageState extends State<MenuPage> {
                         child: Container(
                           margin: EdgeInsets.only(right: 25),
                           color: Colors.white,
-                          //margin: EdgeInsets.all(10),
+
                           height: 100,width: 75,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -229,7 +232,7 @@ class _MenuPageState extends State<MenuPage> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Row(
                 children: [
@@ -243,224 +246,241 @@ class _MenuPageState extends State<MenuPage> {
                       ),
                     ),
                   ),
-                  Spacer(),
                 ],
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    //1st
-                    Container(
-                      padding: EdgeInsets.only(top: 1),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(10),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                    },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 25),
                         color: Colors.white,
-                      ),
-                      margin: EdgeInsets.all(10),
-                      width: 200,
-                      height: 170,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Image.asset(
-                              "assets/images/chick.jpg",
-                              width: 200,
-                              height: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, top: 5, bottom: 4),
-                                child: Text(
-                                  "Chikken biriyani",
-                                  style: TextStyle(
-                                      fontSize: 10, fontWeight: FontWeight.bold),
+                        //margin: EdgeInsets.all(10),
+                        height: 150,width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 100,width: 150,
+                              decoration: BoxDecoration(color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/biriyani5.png',),
+                                  fit: BoxFit.cover,
                                 ),
+
                               ),
-                              Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 15, top: 5),
-                                child: Text(
-                                  "₹70",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 10),
-                                ),
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, bottom: 10),
-                            child: RatingBar.builder(
-                                itemSize: 12,
-                                initialRating: 3,
-                                minRating: 0,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                onRatingUpdate: (rating) {}),
-                          ),
-                        ],
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                SizedBox(width: 4,),
+                                Text('Chicken Biriyani',style: TextStyle(
+                                  fontSize: 10,fontWeight: FontWeight.w500
+                                ),),
+                                SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+                                Text("₹70",style: TextStyle(
+                                    fontSize: 13,fontWeight: FontWeight.w500
+                                ),),
+
+                              ],
+                            ),
+                        SizedBox(height: 5,),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: RatingBar.builder(
+                              itemSize: 11,
+                              initialRating: 3,
+                              minRating: 0,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {}),
+                        ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-
-                    //2nd container
-
-                    Container(
-                      padding: EdgeInsets.only(top: 1),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(20),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                    },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 25),
                         color: Colors.white,
-                      ),
-                      margin: EdgeInsets.all(10),
-                      width: 200,
-                      height: 170,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Image.asset(
-                              "assets/images/ghee.jpg",
-                              width: 200,
-                              height: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 11, top: 5, bottom: 4),
-                                child: Text(
-                                  "Ghee Rice",
-                                  style: TextStyle(
-                                      fontSize: 10, fontWeight: FontWeight.bold),
+                        //margin: EdgeInsets.all(10),
+                        height: 150,width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 100,width: 150,
+                              decoration: BoxDecoration(color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/biriyani5.png',),
+                                  fit: BoxFit.cover,
                                 ),
+
                               ),
-                              Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 15, top: 5),
-                                child: Text(
-                                  "₹50",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 10),
-                                ),
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, bottom: 10),
-                            child: RatingBar.builder(
-                                itemSize: 12,
-                                initialRating: 3,
-                                minRating: 0,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                onRatingUpdate: (rating) {}),
-                          ),
-                        ],
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                SizedBox(width: 4,),
+                                Text('Chicken Biriyani',style: TextStyle(
+                                    fontSize: 10,fontWeight: FontWeight.w500
+                                ),),
+                                SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+                                Text("₹70",style: TextStyle(
+                                    fontSize: 13,fontWeight: FontWeight.w500
+                                ),),
+
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: RatingBar.builder(
+                                  itemSize: 11,
+                                  initialRating: 3,
+                                  minRating: 0,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {}),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-
-                    //3rd container
-
-                    Container(
-                      padding: EdgeInsets.only(top: 1),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(10),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                    },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 25),
                         color: Colors.white,
-                      ),
-                      margin: EdgeInsets.all(10),
-                      width: 200,
-                      height: 170,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                            },
-                            child: Image.asset(
-                              "assets/images/verumchor1.jpg",
-                              width: 200,
-                              height: 120,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10, top: 5, bottom: 4),
-                                child: Text(
-                                  "Rice",
-                                  style: TextStyle(
-                                      fontSize: 10, fontWeight: FontWeight.bold),
+                        //margin: EdgeInsets.all(10),
+                        height: 150,width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 100,width: 150,
+                              decoration: BoxDecoration(color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/biriyani5.png',),
+                                  fit: BoxFit.cover,
                                 ),
-                              ),
-                              Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 15, top: 5),
-                                child: Text(
-                                  "₹50",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 10),
-                                ),
-                              )
-                            ],
-                          ),
 
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10, bottom: 10),
-                            child: RatingBar.builder(
-                                itemSize: 12,
-                                initialRating: 3,
-                                minRating: 0,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                onRatingUpdate: (rating) {}),
-                          ),
-                        ],
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                SizedBox(width: 4,),
+                                Text('Chicken Biriyani',style: TextStyle(
+                                    fontSize: 10,fontWeight: FontWeight.w500
+                                ),),
+                                SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+                                Text("₹70",style: TextStyle(
+                                    fontSize: 13,fontWeight: FontWeight.w500
+                                ),),
+
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: RatingBar.builder(
+                                  itemSize: 11,
+                                  initialRating: 3,
+                                  minRating: 0,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {}),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                    },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+                        //margin: EdgeInsets.all(10),
+                        height: 150,width: 150,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          //mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 100,width: 150,
+                              decoration: BoxDecoration(color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/biriyani5.png',),
+                                  fit: BoxFit.cover,
+                                ),
+
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                SizedBox(width: 4,),
+                                Text('Chicken Biriyani',style: TextStyle(
+                                    fontSize: 10,fontWeight: FontWeight.w500
+                                ),),
+                                SizedBox(width: MediaQuery.of(context).size.width*0.12,),
+                                Text("₹70",style: TextStyle(
+                                    fontSize: 13,fontWeight: FontWeight.w500
+                                ),),
+
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 5.0),
+                              child: RatingBar.builder(
+                                  itemSize: 11,
+                                  initialRating: 3,
+                                  minRating: 0,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemBuilder: (context, _) => Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {}),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
-                ),
+                )
               ),
 
             ],
