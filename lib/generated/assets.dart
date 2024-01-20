@@ -25,10 +25,12 @@ class Assets {
   static const String imagesIcLauncher = 'assets/images/ic_launcher.png';
   static const String imagesIcons8 = 'assets/images/icons8.png';
   static const String imagesMaintenance = 'assets/images/maintenance.png';
+  static const String imagesMark22 = 'assets/images/mark22.png';
   static const String imagesRate = 'assets/images/rate.png';
   static const String imagesRectangle1 = 'assets/images/Rectangle1.png';
   static const String imagesRectangle2 = 'assets/images/Rectangle2.png';
   static const String imagesSamosa1 = 'assets/images/samosa1.png';
+  static const String imagesSuccess64 = 'assets/images/success64.png';
   static const String imagesTocken = 'assets/images/tocken.png';
   static const String imagesUllivad1 = 'assets/images/ullivad1.jpg';
   static const String imagesVerumchor1 = 'assets/images/verumchor1.jpg';

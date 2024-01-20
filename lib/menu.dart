@@ -21,6 +21,8 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -38,7 +40,7 @@ class _MenuPageState extends State<MenuPage> {
                   children: [
                     Text(
                       "Menu",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: height*.029, fontWeight: FontWeight.bold),
                     ),
                     Spacer(),
                     Container(
@@ -92,147 +94,174 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                 ),
               ),
+               SizedBox(height: height*.035,),
                Row(
+                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30.0, left: 10),
-                      child: Text(
-                        "Our Menu",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
+                     SizedBox(width: width*.023,),
+                    Text(
+                      "Our Menu",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15,left: 10,right: 10),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      InkWell(onTap: (){
+              SizedBox(height: height*.019,),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    InkWell(
+                      onTap:()
+                  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));},
+                      child: Container(
+                        margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+
+                        height: height*0.18,width: width*.2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: height*.089,//width: width*.9,
+                              decoration: BoxDecoration(color: Colors.orange,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/samosa1.png',),
+                                  fit: BoxFit.cover,
+                                ),
+
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Center(child: Text('Samosa'))
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
                       },
-                        child: Container(
-                          margin: EdgeInsets.only(right: 25),
-                          color: Colors.white,
+                      child: Container(margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+                        //margin: EdgeInsets.all(10),
+                        height: height*0.18,width: width*.2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: height*.089,
+                              decoration: BoxDecoration(color: Colors.black,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/ullivad1.jpg',),
+                                  fit: BoxFit.cover,
+                                ),
 
-                          height: 100,width: 75,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 70,width: 70,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image:  AssetImage('assets/images/samosa1.png',),
-                                    fit: BoxFit.cover,
-                                  ),
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Center(child: Text('Ullivada'))
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                      },
+                      child: Container(margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+                        //margin: EdgeInsets.all(10),
+                        height: height*0.18,width: width*.2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: height*.089,
+                              decoration: BoxDecoration(color: Colors.black,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/ullivad1.jpg',),
+                                  fit: BoxFit.cover,
+                                ),
 
-                                ),
                               ),
-                              SizedBox(height: 5,),
-                              Center(child: Text('Samosa'))
-                            ],
-                          ),
+                            ),
+                            SizedBox(height: 5,),
+                            Center(child: Text('Ullivada'))
+                          ],
                         ),
                       ),
-                      InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                        },
-                        child: Container(margin: EdgeInsets.only(right: 25),
-                          color: Colors.white,
-                          //margin: EdgeInsets.all(10),
-                          height: 100,width: 75,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 70,width: 70,
-                                decoration: BoxDecoration(color: Colors.black,
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image:  AssetImage('assets/images/ullivad1.jpg',),
-                                    fit: BoxFit.cover,
-                                  ),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                      },
+                      child: Container(margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+                        //margin: EdgeInsets.all(10),
+                        height: height*0.18,width: width*.2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: height*.089,
+                              decoration: BoxDecoration(color: Colors.black,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/ullivad1.jpg',),
+                                  fit: BoxFit.cover,
+                                ),
 
-                                ),
                               ),
-                              SizedBox(height: 5,),
-                              Center(child: Text('Ullivada'))
-                            ],
-                          ),
+                            ),
+                            SizedBox(height: 5,),
+                            Center(child: Text('Ullivada'))
+                          ],
                         ),
                       ),
-                      InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(right: 25),
-                          color: Colors.white,
-                          //margin: EdgeInsets.all(10),
-                          height: 100,width: 75,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 70,width: 70,
-                                decoration: BoxDecoration(color: Colors.black,
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image:  AssetImage('assets/images/biriyani5.png',),
-                                    fit: BoxFit.cover,
-                                  ),
+                    ),
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
+                      },
+                      child: Container(margin: EdgeInsets.only(right: 25),
+                        color: Colors.white,
+                        //margin: EdgeInsets.all(10),
+                        height: height*0.18,width: width*.2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: height*.089,
+                              decoration: BoxDecoration(color: Colors.black,
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  image:  AssetImage('assets/images/ullivad1.jpg',),
+                                  fit: BoxFit.cover,
                                 ),
+
                               ),
-                              SizedBox(height: 5,),
-                              Center(child: Text('Samosa'))
-                            ],
-                          ),
+                            ),
+                            SizedBox(height: 5,),
+                            Center(child: Text('Ullivada'))
+                          ],
                         ),
                       ),
-                      InkWell(
-                        onTap:(){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemDetail()));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(right: 25),
-                          color: Colors.white,
-                          //margin: EdgeInsets.all(10),
-                          height: 100,width: 75,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 70,width: 70,
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image:  AssetImage('assets/images/biriyani5.png',),
-                                    fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              SizedBox(height: 5,),
-                              Center(child: Text('Samosa'))
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+
+                  ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: height*.037,
               ),
               Row(
                 children: [
@@ -249,7 +278,7 @@ class _MenuPageState extends State<MenuPage> {
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: height*.01,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
