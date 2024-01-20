@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:canteen_management/navbar/navigbar.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,7 +21,7 @@ class _SplashState extends State<Splash> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => Register(),
+          builder: (context) => navigation(),
         ),
       );
     });

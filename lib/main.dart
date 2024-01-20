@@ -3,6 +3,7 @@ import 'package:canteen_management/login.dart';
 import 'package:canteen_management/maintance.dart';
 import 'package:canteen_management/menu.dart';
 import 'package:canteen_management/signup.dart';
+import 'package:canteen_management/splash.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: navigation(),
+      home: Splash(),
 
     );
   }

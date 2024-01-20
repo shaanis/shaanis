@@ -30,6 +30,7 @@ class Assets {
   static const String imagesRectangle2 = 'assets/images/Rectangle2.png';
   static const String imagesSamosa1 = 'assets/images/samosa1.png';
   static const String imagesTocken = 'assets/images/tocken.png';
+  static const String imagesUllivad1 = 'assets/images/ullivad1.jpg';
   static const String imagesVerumchor1 = 'assets/images/verumchor1.jpg';
 
 }
