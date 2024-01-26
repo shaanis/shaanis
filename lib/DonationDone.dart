@@ -32,7 +32,7 @@ class DonePage extends StatelessWidget {
             SizedBox(height:height*.015 ,),
             Text(
               """Thank you for join with us to help
-            poor peoples!""",
+                 poor peoples!""",
               style: TextStyle(
                 color: Color(0xff515b67),
               ),

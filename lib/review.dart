@@ -11,6 +11,8 @@ class reviewPage extends StatefulWidget {
 class _reviewPageState extends State<reviewPage> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -21,7 +23,9 @@ class _reviewPageState extends State<reviewPage> {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icon(Icons.close),
                   ),
                   SizedBox(

@@ -15,6 +15,8 @@ class TokenPage extends StatefulWidget {
 class _TokenPageState extends State<TokenPage> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

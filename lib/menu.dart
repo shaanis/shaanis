@@ -9,6 +9,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'Widgets/CategoriesWidget.dart';
 import 'item detial.dart';
+import 'navbar/navigbar.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -511,11 +512,11 @@ class _MenuPageState extends State<MenuPage> {
                   ],
                 )
               ),
-
             ],
           ),
         ),
       ),
+     // bottomNavigationBar: navigation(),
     );
   }
 }

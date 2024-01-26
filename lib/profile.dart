@@ -21,6 +21,8 @@ class _profileState extends State<profile> {
   String title = 'AlertDialog';
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -42,16 +44,16 @@ class _profileState extends State<profile> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        //physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0, top: 15),
+                  padding: const EdgeInsets.only(left: 15.0, ),
                   child: Container(
-                    width: 80,
-                    height: 80,
+                    width: width*.22,
+                    height: height*.102,
                     decoration: BoxDecoration(
                       color: Color(0xffdffcd2),
                       borderRadius: BorderRadius.circular(100),
@@ -66,15 +68,15 @@ class _profileState extends State<profile> {
                       Text(
                         "Shanoof T",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                            fontWeight: FontWeight.bold, fontSize: height*.02),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: height*.009,
                       ),
                       Text(
                         """   i am vegetarian""",
                         style:
-                            TextStyle(fontSize: 12, color: Color(0xff9fa4ba)),
+                            TextStyle(fontSize: height*.014, color: Color(0xff9fa4ba)),
                       )
                     ],
                   ),
@@ -82,22 +84,23 @@ class _profileState extends State<profile> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
+              padding: EdgeInsets.only(left: 10,right: 15,bottom: 10,top: 10),
               margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 5,
-                bottom: 10,
+                left: height*.03,
+                right: height*.02,
+                top: height*.01,
+                bottom: height*.012,
               ),
-              width: 400,
-              height: 110,
+              width: width,
+              height: height*.15,
               decoration: BoxDecoration(
                   color: Color(0xffdffcd2),
                   borderRadius: BorderRadius.circular(10)),
-              child: Column(
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   InkWell(
-                    child: Row(
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         CircleAvatar(
                             backgroundColor: Colors.white,
@@ -106,10 +109,10 @@ class _profileState extends State<profile> {
                               color: Color(0xfff96e3e),
                             ),
                           ),
-                         SizedBox(width: 10,),
+                         SizedBox(width: width*.03,),
                         Text("Personal Info"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                     onTap:() {
@@ -119,7 +122,7 @@ class _profileState extends State<profile> {
                       );
                     },
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: height*.01,),
                   InkWell(
                     onTap:() {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TokenPage()));
@@ -130,15 +133,15 @@ class _profileState extends State<profile> {
                             backgroundColor: Colors.white,
                             child: Image.asset(
                               "assets/images/tocken.png",
-                              width: 17,
-                              height: 17,
+                              width: width*.05,
+                              height: height*.05,
                               color: Color(0xff2a85f2),
                             ),
                           ),
-                        SizedBox(width: 10,),
+                        SizedBox(width: width*.03),
                         Text("Tokens"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -146,61 +149,58 @@ class _profileState extends State<profile> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 10,right: 20,bottom: 5,top: 5),
+              padding: EdgeInsets.only(left: 10,right: 15),
               margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 5,
-                bottom: 10,
+                left: height*.03,
+                right: height*.02,
+                top: height*.01,
+                bottom: height*.012,
               ),
-              width: 400,
-              height: 250,
+              width: width,
+              height: height*.33,
               decoration: BoxDecoration(
                   color: Color(0xffdffcd2),
                   borderRadius: BorderRadius.circular(10)),
-              child: Column(
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                 InkWell(
+                   onTap: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+                   },
+                   child: Row(
+                     children: [
+                       CircleAvatar(
+                         backgroundColor: Colors.white,
+                         child: Icon(
+                           Icons.shopping_bag_outlined,
+                           color: Color(0xff2a85f2),
+                         ),
+                       ),
+                       SizedBox(width: width*.03,),
+                       Text("Cart"),
+                       Spacer(),
+                       Icon(Icons.arrow_forward_ios, size: height*.021),
+                     ],
+                   ),
+                 ),
                   InkWell(
-                    onTap:() {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
                     },
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.shopping_bag_outlined,
-                              color: Color(0xff2a85f2),
-                            ),
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.favorite_border_outlined,
+                            color: Color(0xffb23dfa),
                           ),
                         ),
-                        Text("Cart"),
-                        Spacer(),
-                         Icon(Icons.arrow_forward_ios, size: 15),
-                      ],
-                    ),
-                  ),
-                  InkWell(
-                   onTap: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Favorite()));
-                   },
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.favorite_border_outlined,
-                              color: Color(0xffb23dfa),
-                            ),
-                          ),
-                        ),
+                        SizedBox(width: width*.03,),
                         Text("Favorite"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -210,19 +210,17 @@ class _profileState extends State<profile> {
                     },
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.notifications_outlined,
-                              color: Color(0xfffda92b),
-                            ),
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.notifications_outlined,
+                            color: Color(0xfffda92b),
                           ),
                         ),
+                        SizedBox(width: width*.03,),
                         Text("Notifications"),
-                       Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Spacer(),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -232,19 +230,17 @@ class _profileState extends State<profile> {
                     },
                     child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.border_color_outlined,
-                              color: Color(0xff2a85f2),
-                            ),
+                        CircleAvatar(
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.border_color_outlined,
+                            color: Color(0xff2a85f2),
                           ),
                         ),
+                        SizedBox(width: width*.03,),
                         Text("Pre Order"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -254,10 +250,10 @@ class _profileState extends State<profile> {
             Container(
               padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 5,
-                bottom: 10,
+                left: height*.03,
+                right: height*.02,
+                top: height*.01,
+                bottom: height*.012,
               ),
               width: 400,
               height: 110,
@@ -280,10 +276,10 @@ class _profileState extends State<profile> {
                               height: 19,
                             ),
                           ),
-                        SizedBox(width: 10,),
+                        SizedBox(width: width*.03),
                         Text("FAQs"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -303,10 +299,10 @@ class _profileState extends State<profile> {
                               color: Color(0xff2a85f2),
                             ),
                           ),
-                        SizedBox(width: 10,),
+                        SizedBox(width: width*.03),
                         Text("Rating & Feedback"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),
@@ -315,13 +311,13 @@ class _profileState extends State<profile> {
             ),
             Container(padding: EdgeInsets.only(left: 10,right: 20,bottom: 10,top: 10),
               margin: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 5,
-                bottom: 10,
+                left: height*.03,
+                right: height*.02,
+                top: height*.01,
+                bottom: height*.012,
               ),
-              width: 400,
-              height: 60,
+              width: width,
+              height: height*.08,
               decoration: BoxDecoration(
                   color: Color(0xffdffcd2),
                   borderRadius: BorderRadius.circular(10)),
@@ -341,10 +337,10 @@ class _profileState extends State<profile> {
                             ),
 
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(width: width*.03),
                         Text("Log Out"),
                         Spacer(),
-                        Icon(Icons.arrow_forward_ios, size: 15),
+                        Icon(Icons.arrow_forward_ios, size: height*.021),
                       ],
                     ),
                   ),

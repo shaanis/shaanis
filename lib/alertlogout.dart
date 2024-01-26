@@ -9,6 +9,8 @@ class AlertDialogs {
       String title,
       String body,
       ) async {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     final action = await showDialog<DialogsAction>(
       context: context,
       barrierDismissible: false,
