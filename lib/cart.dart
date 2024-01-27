@@ -64,14 +64,14 @@ class _CartPageState extends State<CartPage> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: 12,
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.all(height * .005),
                     color: Colors.white,
                     height: height * .11,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           margin: EdgeInsets.all(height * .005),
@@ -115,11 +115,12 @@ class _CartPageState extends State<CartPage> {
                             incrementQuantity();
                           },
                           child: Container(
-                            height: 15,
-                            width: 15,
+                            height: height * .02,
+                            width: width * .038,
                             decoration: BoxDecoration(
                                 color: Color(0xFFE7E4E4),
-                                borderRadius: BorderRadius.circular(5)),
+                                borderRadius:
+                                    BorderRadius.circular(height * .006)),
                             child: Center(
                                 child: Icon(Icons.add, size: height * .015)),
                           ),
@@ -130,22 +131,30 @@ class _CartPageState extends State<CartPage> {
                             decrementQuantity();
                           },
                           child: Container(
-                            height: 15,
-                            width: 15,
+                            height: height * .02,
+                            width: width * .038,
                             decoration: BoxDecoration(
-                                color: Color(0xFFE7E4E4),
-                                borderRadius: BorderRadius.circular(5)),
+                              color: Color(0xFFE7E4E4),
+                              borderRadius:
+                                  BorderRadius.circular(height * .006),
+                            ),
                             child: Center(
-                                child: Icon(Icons.remove, size: height * .015)),
+                              child: Icon(Icons.remove, size: height * .015),
+                            ),
                           ),
                         ),
                         SizedBox(
                           width: width * .015,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 68.0,right: 5),
+                          padding:
+                              const EdgeInsets.only(bottom: 68.0, right: 5),
                           child: InkWell(
-                            child: Image.asset('assets/images/cross1.png',height: height*.015,width: width*.04,),
+                            child: Image.asset(
+                              'assets/images/cross1.png',
+                              height: height * .015,
+                              width: width * .04,
+                            ),
                           ),
                         ),
                       ],
