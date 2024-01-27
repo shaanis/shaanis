@@ -133,7 +133,7 @@ class _MenuPageState extends State<MenuPage> {
                               Container(
                                 height: height * .089, //width: width*.9,
                                 decoration: BoxDecoration(
-                                  color: Colors.orange,
+                                  //color: Colors.orange,
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                     image: AssetImage(

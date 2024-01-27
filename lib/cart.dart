@@ -56,363 +56,107 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Color(0xfff1edee),
+      body: Container(
+        height: height,
+        width: width,
+        color: Colors.white,
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.all(height * .005),
+                    color: Colors.white,
+                    height: height * .11,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(height * .005),
+                          height: height,
+                          width: width * .24,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/chick.jpg',
+                                  ),
+                                  fit: BoxFit.cover),
+                              color: Colors.red,
+                              borderRadius:
+                                  BorderRadius.circular(height * .015)),
+                        ),
+                        SizedBox(
+                          width: width * .01,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "Chicken Biriyani",
+                              style: TextStyle(
+                                fontSize: height * .015,
+                                color: Color(0xff616261),
+                              ),
+                            ),
+                            Text(
+                              "₹70",
+                              style: TextStyle(
+                                  fontSize: height * .016,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Spacer(),
+                        InkWell(
+                          onTap: () {
+                            incrementQuantity();
+                          },
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFE7E4E4),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                                child: Icon(Icons.add, size: height * .015)),
+                          ),
+                        ),
+                        Text(QuantityCount.toString()),
+                        InkWell(
+                          onTap: () {
+                            decrementQuantity();
+                          },
+                          child: Container(
+                            height: 15,
+                            width: 15,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFE7E4E4),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Center(
+                                child: Icon(Icons.remove, size: height * .015)),
+                          ),
+                        ),
+                        SizedBox(
+                          width: width * .015,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 68.0,right: 5),
+                          child: InkWell(
+                            child: Image.asset('assets/images/cross1.png',height: height*.015,width: width*.04,),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Image.asset(
-                        "assets/images/samosa1.png",
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Samosa",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "₹20.00",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        decrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.remove,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                    child: Center(
-                      child: Text(
-                        QuantityCount.toString(),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        incrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-              //2
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Color(0xfff1edee),
-                    ),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Image.asset(
-                        "assets/images/samosa1.png",
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Samosa",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "₹20.00",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        decrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.remove,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                      width: 20,
-                      child: Center(child: Text(QuantityCount.toString()))),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        incrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 70,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Color(0xfff1edee),
-                    ),
-                    child: InkWell(
-                      onTap: () {},
-                      child: Image.asset(
-                        "assets/images/samosa1.png",
-                        height: 50,
-                        width: 50,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Samosa",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "₹20.00",
-                        style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        decrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.remove,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                      width: 20,
-                      child: Center(child: Text(QuantityCount.toString()))),
-                  Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xfff1edee),
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        incrementQuantity();
-                      },
-                      icon: Icon(
-                        Icons.add,
-                        size: 14,
-                        weight: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.14),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Subtotal",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "₹120.00",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 8.0, top: 8, bottom: 8, right: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Discount",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "₹00.00",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Color(0xff53e510)),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Padding(
-                padding:
-                const EdgeInsets.only(left: 8.0, top: 8, bottom: 8, right: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Total",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "₹120.00",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 10,),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Color(0xff53e510),
-                    shape:  RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)
-                    ),
-                    minimumSize: Size(350, 48)
-                ),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                  );
                 },
-                child: Text("Proceed to Buy"),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-
     );
   }
 }
