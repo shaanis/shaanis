@@ -19,6 +19,7 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  List FoodMenu =[];
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

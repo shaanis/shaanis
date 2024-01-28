@@ -48,7 +48,9 @@ class _ItemDetailState extends State<ItemDetail> {
       ),
       backgroundColor: Colors.white,
       body: Container(
+        margin: EdgeInsets.all(height*.012),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Center(
@@ -58,104 +60,89 @@ class _ItemDetailState extends State<ItemDetail> {
                 height: 250,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 250.0),
-              child: IconButton(
-                onPressed: _toggleLike,
-                icon: Icon(
-                  _isLiked ? Icons.favorite : Icons.favorite_border,
-                  color: _isLiked ? Colors.red : Colors.black,
+            IconButton(
+              onPressed: _toggleLike,
+              icon: Icon(
+                _isLiked ? Icons.favorite : Icons.favorite_border,
+                color: _isLiked ? Colors.red : Colors.black,
+              ),
+            ),
+            Row(
+              children: [
+                Text(
+                  'Samosa',
+                  style: TextStyle(
+                      fontSize: height*.021,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
-              ),
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));},
+                      child:Row(
+                        children: [
+                          Icon(Icons.star,color: Colors.amber,size: height*.020,),
+                          Icon(Icons.star,color: Colors.amber,size: height*.018,),
+                          Icon(Icons.star,color: Colors.amber,size: height*.016,),
+                          Icon(Icons.star,color: Colors.grey,size: height*.014,),
+                          Icon(Icons.star,color: Colors.grey,size: height*.012,),
+                          SizedBox(width: width*.018,)
+                        ],
+                      )
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  Text(
-                    'Samosa',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                  Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context)=>reviewPage()));},
-                        child: RatingBar.builder(
-                            itemSize: 12,
-                            initialRating: 3,
-                            minRating: 0,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemBuilder: (context, _) => Icon(
-                                  Icons.star,
-                                  size: 10,
-                                  color: Colors.amber,
-                                ),
-                            onRatingUpdate: (rating) {}),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            SizedBox(height: height*.01,),
             Text(
-              """Get ready for a flavour-packed adventure
-with our samosas! These golden , crispy
-delights are like flavour bombs, exploding
-with each bite. Ideal for satisfying your 
-snack cravings at our canteen.""",
-              style: TextStyle(color: Color(0xff5f5d5e), fontSize: 17),
+              "Get ready for a flavour-packed adventure with our samosas! These golden , crispy delights are like flavour bombs, exploding with each bite. Ideal for satisfying your snack cravings at our canteen.",
+              style: TextStyle(color: Color(0xff5f5d5e), fontSize: 17,height: height*.0017,wordSpacing: height*.003),
             ),
             SizedBox(
-              height: 15,
+              height: height*.015,
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 250.0),
-              child: Text(
-                "₹10.00",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-              ),
+            Text(
+              "₹10.00",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: height*.019),
             ),
-            SizedBox(height: 3,),
-            Padding(
-              padding: const EdgeInsets.only(right: 250.0),
-              child: Text("Total Price",style: TextStyle(
-                fontSize: 12,
-                color: Color(0xffa49798)
-              ),),
+            SizedBox(height: height*.005,),
+            Text("Total Price",style: TextStyle(
+              fontSize: height*.0135,
+              color: Color(0xffa49798)
+            ),),
+            SizedBox(height: height*.121,),
+            Center(
+              child: ElevatedButton(onPressed: (){
+                addCart();
+              },
+                style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(height*.028)
+                      ),
+                      backgroundColor: Color(0xff232623),
+                      minimumSize: Size(width*.7, height*.058)
+                ),
+                  child: Text('Add to Cart'),),
             ),
-            SizedBox(height: 25,),
-            ElevatedButton(onPressed: (){
-              addCart();
-            },
-              style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 12,vertical: 5),
+            SizedBox(height: height*.015,),
+            Center(
+              child: ElevatedButton(
+                onPressed: (){
+                },
+                style: ElevatedButton.styleFrom(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)
+                        borderRadius: BorderRadius.circular(height*.028)
                     ),
-                    backgroundColor: Color(0xff232623),
-                    minimumSize: Size(280, 48)
-              ),
-                child: Text('Add to Cart'),),
-            SizedBox(height: 15,),
-            ElevatedButton(
-              onPressed: (){
-              },
-              style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 5),
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)
-                  ),
-                  backgroundColor: Color(0xff53e510),
-                  minimumSize: Size(280, 48)
-              ),
-              child: Text('Buy Now'),)
+                    backgroundColor: Color(0xff53e510),
+                    minimumSize: Size(width*.7, height*.058)
+                ),
+                child: Text('Buy Now'),),
+            )
           ],
         ),
       ),
