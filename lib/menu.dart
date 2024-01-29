@@ -19,7 +19,17 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  List FoodMenu =[];
+  List Images = [
+    "assets/images/ghee.jpg",
+    "assets/images/chick.jpg",
+    "assets/images/samosa1.png",
+    "assets/images/chick.jpg",
+  ];
+  List price=[
+    "10","70","10","70"
+  ];
+  List name=[
+    "Ghee rice","chicken Biriyani","Samosa","chicken Biriyani"];
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -178,7 +188,8 @@ class _MenuPageState extends State<MenuPage> {
             Expanded(
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 4,
+                shrinkWrap: true,
+                itemCount: Images.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     child: InkWell(
@@ -206,7 +217,7 @@ class _MenuPageState extends State<MenuPage> {
                                     BorderRadius.circular(height * .015),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    'assets/images/biriyani5.png',
+                                    Images[index]
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -220,21 +231,18 @@ class _MenuPageState extends State<MenuPage> {
                                 SizedBox(
                                   width: width * .007,
                                 ),
-                                Text(
-                                  'Chicken Biriyani',
+                                Text( name[index],
                                   style: TextStyle(
                                       fontSize: height * .012,
                                       fontWeight: FontWeight.w500),
                                 ),
-                                SizedBox(
-                                  width: width * 0.12,
-                                ),
-                                Text(
-                                  "₹70",
+                                Spacer(),
+                                Text( '₹'+price[index],
                                   style: TextStyle(
                                       fontSize: height * .016,
                                       fontWeight: FontWeight.w500),
                                 ),
+                                SizedBox(width: width*.015,)
                               ],
                             ),
                             SizedBox(

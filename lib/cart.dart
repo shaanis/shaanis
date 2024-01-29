@@ -125,9 +125,9 @@ class _CartPageState extends State<CartPage> {
                                 child: Icon(Icons.add, size: height * .015)),
                           ),
                         ),
-                        SizedBox(width: 5,),
-                        Text(QuantityCount.toString()),
-                        SizedBox(width: 5,),
+                        SizedBox(
+                            width: width*.048,
+                            child: Center(child: Text(QuantityCount.toString()))),
                         InkWell(
                           onTap: () {
                             decrementQuantity();

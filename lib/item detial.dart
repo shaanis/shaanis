@@ -56,10 +56,11 @@ class _ItemDetailState extends State<ItemDetail> {
             Center(
               child: Image.asset(
                 'assets/images/samosa1.png',
-                width: 250,
-                height: 250,
+                width: height*.35,
+                height: height*.29,
               ),
             ),
+            SizedBox(height: height*.028,),
             IconButton(
               onPressed: _toggleLike,
               icon: Icon(
@@ -99,7 +100,7 @@ class _ItemDetailState extends State<ItemDetail> {
             SizedBox(height: height*.01,),
             Text(
               "Get ready for a flavour-packed adventure with our samosas! These golden , crispy delights are like flavour bombs, exploding with each bite. Ideal for satisfying your snack cravings at our canteen.",
-              style: TextStyle(color: Color(0xff5f5d5e), fontSize: 17,height: height*.0017,wordSpacing: height*.003),
+              style: TextStyle(color: Color(0xff5f5d5e), fontSize: height*.022,height: height*.0017,wordSpacing: height*.003),
             ),
             SizedBox(
               height: height*.015,
@@ -113,7 +114,7 @@ class _ItemDetailState extends State<ItemDetail> {
               fontSize: height*.0135,
               color: Color(0xffa49798)
             ),),
-            SizedBox(height: height*.121,),
+            Spacer(),
             Center(
               child: ElevatedButton(onPressed: (){
                 addCart();
