@@ -1,15 +1,10 @@
-import 'package:canteen_management/cart.dart';
-import 'package:canteen_management/fav.dart';
 import 'package:canteen_management/profile.dart';
-import 'package:canteen_management/token.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'Widgets/CategoriesWidget.dart';
 import 'item detial.dart';
-import 'navbar/navigbar.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -19,17 +14,21 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  List Images = [
-    "assets/images/ghee.jpg",
-    "assets/images/chick.jpg",
-    "assets/images/samosa1.png",
-    "assets/images/chick.jpg",
+  //our menu
+  final List<Product> Products=[
+    Product(name: "samoosa", imagepath: "assets/images/samosa1.png"),
+    Product(name: "Ullivada", imagepath: "assets/images/ullivad1.jpg"),
+    Product(name: "samoosa", imagepath: "assets/images/samosa1.png"),
+    Product(name: "Ullivada", imagepath: "assets/images/ullivad1.jpg"),
   ];
-  List price=[
-    "10","70","10","70"
+  //popular
+  final List<PopMenu> popmenu=[
+    PopMenu(name: "Ghee Rice", image: "assets/images/ghee.jpg", price: "50"),
+    PopMenu(name: "Chikken Biriyani", image: "assets/images/chick.jpg", price: "70"),
+    PopMenu(name: "Rice", image: "assets/images/ghee.jpg", price: "50"),
+    PopMenu(name: "Ghee Rice", image: "assets/images/ghee.jpg", price: "50"),
   ];
-  List name=[
-    "Ghee rice","chicken Biriyani","Samosa","chicken Biriyani"];
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -122,7 +121,7 @@ class _MenuPageState extends State<MenuPage> {
             Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: Products.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       child: InkWell(
@@ -148,7 +147,7 @@ class _MenuPageState extends State<MenuPage> {
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      'assets/images/samosa1.png',
+                                      Products[index].imagepath,
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -157,7 +156,7 @@ class _MenuPageState extends State<MenuPage> {
                               SizedBox(
                                 height: height * .008,
                               ),
-                              Center(child: Text('Samosa'))
+                              Center(child: Text(Products[index].name))
                             ],
                           ),
                         ),
@@ -189,7 +188,7 @@ class _MenuPageState extends State<MenuPage> {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: Images.length,
+                itemCount: popmenu.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                     child: InkWell(
@@ -217,7 +216,7 @@ class _MenuPageState extends State<MenuPage> {
                                     BorderRadius.circular(height * .015),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    Images[index]
+                                    popmenu[index].image
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -231,13 +230,13 @@ class _MenuPageState extends State<MenuPage> {
                                 SizedBox(
                                   width: width * .007,
                                 ),
-                                Text( name[index],
+                                Text( popmenu[index].name,
                                   style: TextStyle(
                                       fontSize: height * .012,
                                       fontWeight: FontWeight.w500),
                                 ),
                                 Spacer(),
-                                Text( '₹'+price[index],
+                                Text( '₹'+popmenu[index].price,
                                   style: TextStyle(
                                       fontSize: height * .016,
                                       fontWeight: FontWeight.w500),
@@ -276,4 +275,23 @@ class _MenuPageState extends State<MenuPage> {
       // bottomNavigationBar: navigation(),
     );
   }
+}
+
+class Product {
+  String name;
+  String imagepath;
+  Product({required this.name,required this.imagepath});
+
+}
+
+class PopMenu {
+  String name;
+  String image;
+  String price;
+
+  PopMenu({
+    required this.name,
+    required this.image,
+    required this.price
+  });
 }

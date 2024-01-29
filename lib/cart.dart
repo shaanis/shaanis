@@ -20,7 +20,9 @@ class _CartPageState extends State<CartPage> {
   //decrement
   void decrementQuantity() {
     setState(() {
-      QuantityCount--;
+      if(QuantityCount>0){
+        QuantityCount--;
+      }
     });
   }
 
