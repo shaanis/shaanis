@@ -66,7 +66,8 @@ class _CartPageState extends State<CartPage> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 12,
+                shrinkWrap: true,
+                itemCount: 2,
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.all(height * .005),
@@ -167,6 +168,55 @@ class _CartPageState extends State<CartPage> {
                 },
               ),
             ),
+            SizedBox(height: height*.005,),
+            Row(
+              children: [
+                SizedBox(width: width*.05,),
+                Text("Subtotal",style: TextStyle(fontWeight: FontWeight.bold),),
+                Spacer(),
+                Text("₹140.00",style: TextStyle(fontWeight: FontWeight.bold),),
+                SizedBox(width: width*.05,),
+              ],
+            ),
+            SizedBox(height: height*.02,),
+            Row(
+              children: [
+                SizedBox(width: width*.05,),
+                Text("Discount",style: TextStyle(fontWeight: FontWeight.bold),),
+                Spacer(),
+                Text("₹00.00",style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xff53e510)),),
+                SizedBox(width: width*.05,),
+              ],
+            ),
+            SizedBox(height: height*.11,),
+            Row(
+              children: [
+                SizedBox(width: width*.05,),
+                Text("Total",style: TextStyle(fontWeight: FontWeight.bold),),
+                Spacer(),
+                Text("₹140.00",style: TextStyle(fontWeight: FontWeight.bold),),
+                SizedBox(width: width*.05,),
+              ],
+            ),
+            SizedBox(height: height*.02,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(width*.94, height*.053),
+                elevation: 0,
+                backgroundColor: Color(0xff53e510),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PaymentPage()));
+              },
+              child: Text(
+                "Confirm&Pay",
+                style: TextStyle(fontWeight: FontWeight.w400),
+              ),
+            ),
+            SizedBox(height: height*.005,),
           ],
         ),
       ),
