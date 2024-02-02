@@ -5,11 +5,16 @@ import 'package:canteen_management/menu.dart';
 import 'package:canteen_management/signup.dart';
 import 'package:canteen_management/splash.dart';
 import 'package:canteen_management/uporin.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import 'firebase_options.dart';
 import 'navbar/navigbar.dart';
 
-void main() {
+void main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
