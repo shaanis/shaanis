@@ -9,6 +9,17 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController _nameController =TextEditingController();
+  TextEditingController _emailController =TextEditingController();
+  TextEditingController _passwordController =TextEditingController();
+
+  @override
+  void dispose() {
+   _nameController.dispose();
+   _emailController.dispose();
+   _passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -65,7 +76,7 @@ management system? Simply click the
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                       TextFormField(
+                       TextFormField(controller: _nameController,
                          decoration: InputDecoration(
                              contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
                              filled: true,
@@ -79,7 +90,7 @@ management system? Simply click the
                          ),
                        ),
                     SizedBox(height: 20,),
-                    TextField(
+                    TextField(controller: _emailController,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
                         filled: true,
@@ -94,6 +105,7 @@ management system? Simply click the
                     ),
                     SizedBox(height: 20,),
                     TextFormField(obscureText: true,
+                      controller: _passwordController,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
                           filled: true,
