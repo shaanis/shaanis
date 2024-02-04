@@ -1,5 +1,7 @@
 import 'package:canteen_management/menu.dart';
+import 'package:canteen_management/navbar/navigbar.dart';
 import 'package:canteen_management/uporin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +14,9 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   bool _isPasswordVisible = false;
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -34,6 +38,8 @@ class _SignInState extends State<SignIn> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          height: height,
+          width: width,
           color: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           child: Column(
@@ -68,6 +74,7 @@ Ready to get started with our canteen
                 height: 20,
               ),
               TextFormField(
+                controller: _emailController,
                 decoration: InputDecoration(
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10, horizontal: 12),
@@ -102,11 +109,13 @@ Ready to get started with our canteen
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none
-                    ),
+                        borderSide: BorderSide.none),
                     suffixIcon: IconButton(
-                      icon: Icon(_isPasswordVisible ? Icons.visibility_sharp : Icons.visibility_off_sharp,
-                      size: 18),
+                      icon: Icon(
+                          _isPasswordVisible
+                              ? Icons.visibility_sharp
+                              : Icons.visibility_off_sharp,
+                          size: 18),
                       onPressed: () {
                         setState(() {
                           _isPasswordVisible = !_isPasswordVisible;
@@ -128,9 +137,33 @@ Ready to get started with our canteen
                     )),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MenuPage()));
+                  onPressed: () async {
+                    try {
+                      final credential = await FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'user-not-found') {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("No user found"),
+                            behavior:SnackBarBehavior.floating ,
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
+                      } else if (e.code == 'wrong-password') {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Wrong password"),
+                            behavior:SnackBarBehavior.floating ,
+                            duration: Duration(seconds: 1),
+                          ),
+                        );
+                      }
+                    }
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => navigation()));
                   },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,

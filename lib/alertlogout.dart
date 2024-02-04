@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -49,8 +50,9 @@ class AlertDialogs {
                   fontWeight: FontWeight.w400,
                 fontSize: 12
               ),),
-              onPressed: () {
-                Navigator.of(dialogContext).pop(DialogsAction.yes); // Dismiss alert dialog
+              onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                // Dismiss alert dialog
               },
             ),
           ],

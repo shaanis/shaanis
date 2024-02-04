@@ -20,8 +20,8 @@ class _RegisterState extends State<Register> {
         elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        width: width,
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +39,7 @@ class _RegisterState extends State<Register> {
                   fontSize: 20),
             ),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Text(
               """Ready to get started with our canteen
