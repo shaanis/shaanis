@@ -91,7 +91,7 @@ management system? Simply click the
                       },
                       // onSaved: (value){
                       // setState(() {
-                      //    name = value!;
+                      //    var name = value!;
                       // });
                       // },
                       decoration: InputDecoration(
@@ -109,7 +109,14 @@ management system? Simply click the
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
+                    TextFormField(
+                      validator: (value){
+                        if(value != null && value.length< 7){
+                          return 'Enter minimun 7 characters';
+                        }else{
+                          return null;
+                        }
+                      },
                       controller: _emailController,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -119,7 +126,7 @@ management system? Simply click the
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none),
-                          labelText: "Enter your Email",
+                          hintText: "Enter your Email",
                           prefixIcon:
                               Icon(Icons.email_outlined, color: Colors.black)),
                     ),
@@ -127,6 +134,13 @@ management system? Simply click the
                       height: 20,
                     ),
                     TextFormField(
+                      validator: (value){
+                        if(value != null && value.length< 7){
+                          return 'Enter minimun 7 characters';
+                        }else{
+                          return null;
+                        }
+                      },
                       obscureText: true,
                       controller: _passwordController,
                       decoration: InputDecoration(
@@ -147,6 +161,13 @@ management system? Simply click the
                       height: 20,
                     ),
                     TextFormField(
+                      validator: (value){
+                      if(value != null && value.length< 7){
+                        return 'Enter minimun 7 characters';
+                      }else{
+                        return null;
+                      }
+                    },
                       obscureText: true,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
