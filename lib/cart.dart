@@ -68,7 +68,7 @@ class _CartPageState extends State<CartPage> {
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 2,
-                itemBuilder: (context, index) {
+                itemBuilder: (BuildContext context,int index) {
                   return Container(
                     margin: EdgeInsets.all(height * .005),
                     color: Colors.white,
