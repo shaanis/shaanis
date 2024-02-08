@@ -1,3 +1,4 @@
+import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,11 @@ class AlertDialogs {
               ),),
               onPressed: () async {
                   await FirebaseAuth.instance.signOut();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) =>Register(),
+                    ),
+                  );
                 // Dismiss alert dialog
               },
             ),
