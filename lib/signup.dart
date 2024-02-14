@@ -1,3 +1,4 @@
+import 'package:canteen_management/login.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,15 +11,18 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -42,6 +46,7 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           height: MediaQuery.of(context).size.height - 30,
@@ -75,16 +80,16 @@ management system? Simply click the
               ),
               //SizedBox(height: 15,),
               Form(
+                key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     TextFormField(
                       controller: _nameController,
-                      key: ValueKey('name'),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Please Enter Name';
+                          return 'Please enter name';
                         } else {
                           return null;
                         }
@@ -102,15 +107,26 @@ management system? Simply click the
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none),
-                          labelText: "Enter your name",
+                          hintText: "Enter your name",
                           prefixIcon: Icon(Icons.person_outline_outlined,
                               color: Colors.black)),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
+                    TextFormField(
                       controller: _emailController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter an email ';
+                        }
+                        else if(!value.contains('@')) {
+                          return 'Please enter a valid email ';
+                        }
+                        // You can add email validation logic here
+                        return null;
+
+                      },
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 12),
@@ -119,7 +135,7 @@ management system? Simply click the
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none),
-                          labelText: "Enter your Email",
+                          hintText: "Enter your Email",
                           prefixIcon:
                               Icon(Icons.email_outlined, color: Colors.black)),
                     ),
@@ -127,6 +143,14 @@ management system? Simply click the
                       height: 20,
                     ),
                     TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter a password';
+                        } else if (value!.length < 6) {
+                          return 'Password must be at least 6 characters';
+                        }
+                        return null;
+                      },
                       obscureText: true,
                       controller: _passwordController,
                       decoration: InputDecoration(
@@ -147,6 +171,15 @@ management system? Simply click the
                       height: 20,
                     ),
                     TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'This field is mandatory';
+                        } else if (value != _passwordController.text) {
+                          return 'Passwords do not match';
+                        }
+                        return null;
+                      },
+                      controller: _confirmPasswordController,
                       obscureText: true,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
@@ -165,10 +198,13 @@ management system? Simply click the
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        final auth = FirebaseAuth.instance;
-                        auth.createUserWithEmailAndPassword(
-                            email: _emailController.text,
-                            password: _passwordController.text);
+                        if(_formKey.currentState!.validate()){
+                          final auth = FirebaseAuth.instance;
+                          auth.createUserWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignIn()));
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                           padding:
