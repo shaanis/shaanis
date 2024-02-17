@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'firebase/Auth.dart';
+
 class SignIn extends StatefulWidget {
+
   const SignIn({super.key});
 
   @override
   State<SignIn> createState() => _SignInState();
 }
-
 class _SignInState extends State<SignIn> {
   bool _isPasswordVisible = false;
   final TextEditingController _passwordController = TextEditingController();
@@ -43,7 +45,7 @@ class _SignInState extends State<SignIn> {
           height: height,
           width: width,
           color: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          padding: EdgeInsets.all(height*.02),
           child: Form(
             key: _formKey,
             child: Column(
@@ -62,7 +64,7 @@ class _SignInState extends State<SignIn> {
                       textStyle: TextStyle(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff5de104))),
+                          color: Colors.black)),
                 ),
                 SizedBox(
                   height: 20,
@@ -146,12 +148,14 @@ Ready to get started with our canteen
                       )),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 285.0),
+                  padding: const EdgeInsets.only(left: 250),
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       child: Text(
                         "Forgot password?",
-                        style: TextStyle(fontSize: 11, color: Color(0xffcccccd)),
+                        style: TextStyle(fontSize: height*.012, color: Color(0xffcccccd)),
                       )),
                 ),
                 ElevatedButton(
@@ -181,6 +185,7 @@ Ready to get started with our canteen
                           );
                         }
                       }}
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>navigation()));
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
@@ -203,7 +208,9 @@ Ready to get started with our canteen
                   height: 20,
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async {
+                   await signInWithGoogle();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MenuPage()));
                   },
                   child: Image.asset(
                     "assets/images/google_2504739.png",

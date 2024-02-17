@@ -2,6 +2,7 @@ import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 enum DialogsAction { yes, cancel }
 
@@ -52,6 +53,10 @@ class AlertDialogs {
                 fontSize: 12
               ),),
               onPressed: () async {
+
+                  await  GoogleSignIn().signOut();
+
+
                   await FirebaseAuth.instance.signOut();
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(

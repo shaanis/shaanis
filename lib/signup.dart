@@ -1,7 +1,11 @@
 import 'package:canteen_management/login.dart';
+import 'package:canteen_management/navbar/navigbar.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'firebase/Auth.dart';
+import 'menu.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -46,7 +50,6 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           height: MediaQuery.of(context).size.height - 30,
@@ -94,11 +97,6 @@ management system? Simply click the
                           return null;
                         }
                       },
-                      // onSaved: (value){
-                      // setState(() {
-                      //    name = value!;
-                      // });
-                      // },
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 12),
@@ -228,7 +226,10 @@ management system? Simply click the
                       height: 20,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: ()async {
+                        await signInWithGoogle();
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>navigation()));
+                      },
                       child: Image.asset(
                         "assets/images/google_2504739.png",
                         width: 30,
