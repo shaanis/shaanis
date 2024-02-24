@@ -1,3 +1,4 @@
+import 'package:canteen_management/firebase/Auth.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,16 +54,14 @@ class AlertDialogs {
                 fontSize: 12
               ),),
               onPressed: () async {
-
-                  await  GoogleSignIn().signOut();
-
-
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.of(context).pushReplacement(
+                  final user = FirebaseAuth.instance.currentUser;
+                  // await  GoogleSignIn().signOut();
+                  await  AuthServices().logout().then((value) => Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
                       builder: (context) =>Register(),
                     ),
-                  );
+                  ));
+
                 // Dismiss alert dialog
               },
             ),

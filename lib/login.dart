@@ -89,7 +89,7 @@ Ready to get started with our canteen
                   controller: _emailController,
                   decoration: InputDecoration(
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 12),
                       fillColor: Color(0xffebebec),
                       filled: true,
                       hintText: "Enter your email",
@@ -120,7 +120,7 @@ Ready to get started with our canteen
                   obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 12),
                       fillColor: Color(0xffebebec),
                       filled: true,
                       hintText: "Enter your password",
@@ -161,36 +161,36 @@ Ready to get started with our canteen
                 ElevatedButton(
                     onPressed: () async {
                       if(_formKey.currentState!.validate()){
-                      try {
-                        final credential = await FirebaseAuth.instance
-                            .signInWithEmailAndPassword(
-                                email: _emailController.text,
-                                password: _passwordController.text);
-                      } on FirebaseAuthException catch (e) {
-                        if (e.code == 'user-not-found') {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text("No user found"),
-                              behavior:SnackBarBehavior.floating ,
-                              duration: Duration(seconds: 1),
-                            ),
-                          );
-                        } else if (e.code == 'wrong-password') {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text("Wrong password"),
-                              behavior:SnackBarBehavior.floating ,
-                              duration: Duration(seconds: 1),
-                            ),
-                          );
-                        }
-                      }}
+                        try {
+                          final credential = await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("No user found"),
+                                behavior:SnackBarBehavior.floating ,
+                                duration: Duration(seconds: 1),
+                              ),
+                            );
+                          } else if (e.code == 'wrong-password') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Wrong password"),
+                                behavior:SnackBarBehavior.floating ,
+                                duration: Duration(seconds: 1),
+                              ),
+                            );
+                          }
+                        }}
                       Navigator.of(context).push(MaterialPageRoute(builder: (context)=>navigation()));
                     },
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
                         padding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                        EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -209,7 +209,7 @@ Ready to get started with our canteen
                 ),
                 InkWell(
                   onTap: () async {
-                   await signInWithGoogle();
+                    await signInWithGoogle();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MenuPage()));
                   },
                   child: Image.asset(
@@ -227,4 +227,3 @@ Ready to get started with our canteen
     );
   }
 }
-

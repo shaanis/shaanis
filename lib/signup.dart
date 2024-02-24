@@ -1,6 +1,8 @@
 import 'package:canteen_management/login.dart';
+import 'package:canteen_management/model/modelclass.dart';
 import 'package:canteen_management/navbar/navigbar.dart';
 import 'package:canteen_management/uporin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +22,35 @@ class _SignUpState extends State<SignUp> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
+
+  UserModel _userModel = UserModel();
+  AuthServices _authServices = AuthServices();
+  bool isLoading = false;
+
+  void _register()async{
+    setState(() {
+      isLoading=true;
+    });
+
+    _userModel=UserModel(
+        email: _emailController.text,
+        password: _passwordController.text,
+        name: _nameController.text
+    );
+    try{
+      await Future.delayed(Duration(seconds: 2));
+      final userdata=await _authServices.registerUser(_userModel);
+      if(userdata!=null){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignIn()));
+      }
+    }on FirebaseAuthException catch(e){
+      setState(() {
+        isLoading = false;
+      });
+      // List err = e.toString().split("]");
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Email address is already taken")));
+    }
+  }
 
   @override
   void dispose() {
@@ -82,162 +113,167 @@ management system? Simply click the
                 ],
               ),
               //SizedBox(height: 15,),
-              Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    TextFormField(
-                      controller: _nameController,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter name';
-                        } else {
+              Stack(
+                children:[
+                  Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      TextFormField(
+                        controller: _nameController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter name';
+                          } else {
+                            return null;
+                          }
+                        },
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 12),
+                            filled: true,
+                            fillColor: Color(0xffebebec),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none),
+                            hintText: "Enter your name",
+                            prefixIcon: Icon(Icons.person_outline_outlined,
+                                color: Colors.black)),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        controller: _emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter an email ';
+                          }
+                          else if(!value.contains('@')) {
+                            return 'Please enter a valid email ';
+                          }
+                          // You can add email validation logic here
                           return null;
-                        }
-                      },
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 12),
-                          filled: true,
-                          fillColor: Color(0xffebebec),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          hintText: "Enter your name",
-                          prefixIcon: Icon(Icons.person_outline_outlined,
-                              color: Colors.black)),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      controller: _emailController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter an email ';
-                        }
-                        else if(!value.contains('@')) {
-                          return 'Please enter a valid email ';
-                        }
-                        // You can add email validation logic here
-                        return null;
 
-                      },
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 12),
-                          filled: true,
-                          fillColor: Color(0xffebebec),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          hintText: "Enter your Email",
-                          prefixIcon:
-                              Icon(Icons.email_outlined, color: Colors.black)),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Please enter a password';
-                        } else if (value!.length < 6) {
-                          return 'Password must be at least 6 characters';
-                        }
-                        return null;
-                      },
-                      obscureText: true,
-                      controller: _passwordController,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 12),
-                          filled: true,
-                          fillColor: Color(0xffebebec),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          hintText: "Enter your password",
-                          prefixIcon: Icon(
-                            Icons.lock_outline,
-                            color: Colors.black,
-                          )),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'This field is mandatory';
-                        } else if (value != _passwordController.text) {
-                          return 'Passwords do not match';
-                        }
-                        return null;
-                      },
-                      controller: _confirmPasswordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 12),
-                          filled: true,
-                          fillColor: Color(0xffebebec),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none),
-                          hintText: "Re-enter your password",
-                          prefixIcon:
-                              Icon(Icons.lock_outline, color: Colors.black)),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        if(_formKey.currentState!.validate()){
-                          final auth = FirebaseAuth.instance;
-                          auth.createUserWithEmailAndPassword(
-                              email: _emailController.text,
-                              password: _passwordController.text);
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignIn()));
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30)),
-                          backgroundColor: Color(0xff58e517),
-                          minimumSize: Size(400, 50)),
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(color: Colors.white),
+                        },
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 12),
+                            filled: true,
+                            fillColor: Color(0xffebebec),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none),
+                            hintText: "Enter your Email",
+                            prefixIcon:
+                                Icon(Icons.email_outlined, color: Colors.black)),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "OR",
-                      style: TextStyle(fontSize: 10, color: Colors.grey),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    InkWell(
-                      onTap: ()async {
-                        await signInWithGoogle();
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>navigation()));
-                      },
-                      child: Image.asset(
-                        "assets/images/google_2504739.png",
-                        width: 30,
-                        height: 30,
+                      SizedBox(
+                        height: 20,
                       ),
-                    )
-                  ],
+                      TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter a password';
+                          } else if (value!.length < 6) {
+                            return 'Password must be at least 6 characters';
+                          }
+                          return null;
+                        },
+                        obscureText: true,
+                        controller: _passwordController,
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 12),
+                            filled: true,
+                            fillColor: Color(0xffebebec),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none),
+                            hintText: "Enter your password",
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: Colors.black,
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'This field is mandatory';
+                          } else if (value != _passwordController.text) {
+                            return 'Passwords do not match';
+                          }
+                          return null;
+                        },
+                        controller: _confirmPasswordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 12),
+                            filled: true,
+                            fillColor: Color(0xffebebec),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none),
+                            hintText: "Re-enter your password",
+                            prefixIcon:
+                                Icon(Icons.lock_outline, color: Colors.black)),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                        onPressed: () async {
+                          if(_formKey.currentState!.validate()){
+                           _register();
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                            padding:
+                                EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30)),
+                            backgroundColor: Color(0xff58e517),
+                            minimumSize: Size(width, height*.07)),
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Text(
+                        "OR",
+                        style: TextStyle(fontSize: 10, color: Colors.grey),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      InkWell(
+                        onTap: ()async {
+                          await signInWithGoogle();
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>navigation()));
+                        },
+                        child: Image.asset(
+                          "assets/images/google_2504739.png",
+                          width: 30,
+                          height: 30,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
+                  Visibility(
+                    visible: isLoading,
+                    child: Center(
+                      child: CircularProgressIndicator(color: Color(0xFF64E52A),),
+                    ),)
+                ],
               )
             ],
           ),
@@ -245,4 +281,16 @@ management system? Simply click the
       ),
     );
   }
+  // signup()async{
+  //   // UserCredential userData = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //   //     email: _emailController.text,
+  //   //     password: _passwordController.text);
+  //   // if(userData!=null){
+  //   //   FirebaseFirestore.instance.collection('users').doc(userData.user!.uid).set({
+  //   //     'uid':userData.user!.uid,
+  //   //     'email':userData.user!.email,
+  //   //     'name':_nameController.text,
+  //   //   }).then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignIn())));
+  //   // }
+  // }
 }
