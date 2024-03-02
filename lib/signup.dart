@@ -1,13 +1,11 @@
 import 'package:canteen_management/login.dart';
 import 'package:canteen_management/model/modelclass.dart';
 import 'package:canteen_management/navbar/navigbar.dart';
+import 'package:canteen_management/services/Auth.dart';
 import 'package:canteen_management/uporin.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'firebase/Auth.dart';
-import 'menu.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -231,6 +229,7 @@ management system? Simply click the
                         onPressed: () async {
                           if(_formKey.currentState!.validate()){
                            _register();
+                           _addtask();
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -281,16 +280,10 @@ management system? Simply click the
       ),
     );
   }
-  // signup()async{
-  //   // UserCredential userData = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //   //     email: _emailController.text,
-  //   //     password: _passwordController.text);
-  //   // if(userData!=null){
-  //   //   FirebaseFirestore.instance.collection('users').doc(userData.user!.uid).set({
-  //   //     'uid':userData.user!.uid,
-  //   //     'email':userData.user!.email,
-  //   //     'name':_nameController.text,
-  //   //   }).then((value) => Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignIn())));
-  //   // }
-  // }
+  _addtask() {
+  UserModel _taskModel = UserModel( name: _nameController.text,
+      email: _emailController.text);
+  }
 }
+
+

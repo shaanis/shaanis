@@ -1,4 +1,4 @@
-import 'package:canteen_management/firebase/Auth.dart';
+import 'package:canteen_management/services/Auth.dart';
 import 'package:canteen_management/uporin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

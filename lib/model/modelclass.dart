@@ -29,4 +29,6 @@ class UserModel {
        "password": password,
     };
   }
+
+  toMap() {}
 }

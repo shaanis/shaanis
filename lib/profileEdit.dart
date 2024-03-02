@@ -1,4 +1,7 @@
 import 'package:canteen_management/editingDetails.dart';
+import 'package:canteen_management/model/modelclass.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileEdit extends StatefulWidget {
@@ -72,7 +75,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                 child: Column(
                   children: [
                     Text(
-                      "Shanoof T",
+                      "",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                     ),

@@ -52,8 +52,7 @@ class AuthServices {
 
   Future<DocumentSnapshot?> loginUser(UserModel user) async {
     UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: user.email.toString(),
-        password: user.password.toString());
+        email: user.email.toString(), password: user.password.toString());
     DocumentSnapshot? snap;
     SharedPreferences _pref = await SharedPreferences.getInstance();
     String? token = await userCredential.user!.getIdToken();
@@ -75,15 +74,35 @@ class AuthServices {
     _auth.signOut();
   }
 
-  Future<bool?>isloggedin()async{
+  Future<bool?> isloggedin() async {
     SharedPreferences _pref = await SharedPreferences.getInstance();
     String? _token = await _pref.getString('token');
-    if(_token==null){
+    if (_token == null) {
       return false;
-    }else{
+    } else {
       return true;
     }
   }
 
-}
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  Future<void> fetchData() async {
+    try {
+      // Access a specific collection in Firestore
+      CollectionReference users = _firestore.collection('user');
+
+      // Get the documents from the collection
+      QuerySnapshot querySnapshot = await users.get();
+
+      // Iterate through the documents and access data
+      for (QueryDocumentSnapshot doc in querySnapshot.docs) {
+        print('uid: ${doc.id}');
+        print('name: ${doc['name']}');
+        print('email: ${doc['email']}');
+        print('---');
+      }
+    } catch (e) {
+      print('Error fetching data: $e');
+    }
+  }
+}
